@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<views:AbstractView
+	xmlns:views="com.rmc.projects.happybirthday.view.components.views.*" 
+	xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	
+	creationComplete="_onCreationComplete(event)"
+	
+	title= "{phrasesVO.applicationTitle_str}" xmlns:components="com.rmc.projects.happybirthday.view.components.*"
+	
+	
+	>
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			import mx.events.IndexChangedEvent;
+			
+			import org.osflash.signals.natives.NativeSignal;
+			
+			import spark.events.ListEvent;
+			
+			//--------------------------------------
+			//  Properties
+			//--------------------------------------
+			//PUBLIC GETTER/SETTERS
+			
+			//PUBLIC
+			/**
+			 * Signal: When 'Spinner' Change
+			 * 
+			 */
+			public var languageSpinnerListChangeSignal : NativeSignal;
+			
+			/**
+			 * Signal: When 'Load' is Clicked
+			 * 
+			 */
+			public var loadButtonClickSignal : NativeSignal;
+
+			
+			//PUBLIC CONST
+			
+			
+			//PRIVATE
+			
+			// --------------------------------------
+			// Methods
+			// --------------------------------------
+			// PUBLIC
+			
+			// PRIVATE
+			
+			// --------------------------------------
+			// Event Handlers
+			// --------------------------------------
+			/**
+			 * Handles the aEvent: <code>FlexEvent.CREATION_COMPLETE</code>.
+			 * 
+			 * @param aEvent <code>FlexEvent</code> The incoming aEvent payload.
+			 *  
+			 * @return void
+			 * 
+			 */
+			private function _onCreationComplete(aEvent : FlexEvent) : void
+			{
+				languageSpinnerListChangeSignal  	= new NativeSignal	(languageFullList_spinnerlist, 	IndexChangedEvent.CHANGE, IndexChangedEvent);	
+				loadButtonClickSignal  			= new NativeSignal	(loadMessage_button, 	MouseEvent.CLICK, MouseEvent);	
+				
+				back_button.visible = false;
+				back_button.width = 0;
+			}
+			
+		]]>
+	</fx:Script>
+
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<!-- Layout -->
+	
+	<!-- Place any UI components here. -->	
+	<s:VGroup width="100%" height="100%"  horizontalAlign="center" >
+		
+		<s:SpinnerListContainer width="100%">
+			<s:SpinnerList id="languageFullList_spinnerlist" width="100%" labelField="title" />
+		</s:SpinnerListContainer>
+		<s:Button 	id = "loadMessage_button" enabled="false" 		width="100%" label = "{phrasesVO.loadMessageButtonLabel_str}"  />
+		
+	</s:VGroup>
+
+	<!-- TODO - Dynamically Insert iAD/adMob Advertisement Here -->	
+	<components:MobileAdvertisement width="100%" height = "100" />
+		
+</views:AbstractView>

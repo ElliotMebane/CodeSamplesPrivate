@@ -1,0 +1,32 @@
+<phrases>
+	
+	<!-- DON'T ADD 'ES' HERE SO YOU CAN SEE HOW IT FAILS GRACEFULLY TO USE ENGLISH -->
+	<phrase name = "applicationTitle_str">
+		<EN>Happy Birthday</EN>
+	</phrase>
+	<phrase name = "loadMessageViewTitle_str">
+		<EN>Happy Birthday</EN>
+	</phrase>
+	<phrase name = "songViewTitle_str">
+		<EN>Song</EN>
+	</phrase>
+	
+	
+	<!-- ADD 'EN' & 'ES' TO ALL OF THESE -->
+	<phrase name = "loadMessageButtonLabel_str">
+		<EN>Load Song</EN>
+	</phrase>
+	<phrase name = "loadMessageButtonToolTip_str">
+		<EN>Click To Load The Song</EN>
+	</phrase>
+	
+	<phrase name = "backButtonLabel_str">
+		<EN>Back</EN>
+	</phrase>
+	
+	<phrase name = "backButtonToolTip_str">
+		<EN>Click To Go Back</EN>
+	</phrase>
+	
+	
+</phrases>
