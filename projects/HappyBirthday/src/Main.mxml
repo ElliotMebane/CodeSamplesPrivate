@@ -8,7 +8,15 @@
 	
 	applicationDPI="320"
 	
+	
+	preloader="spark.preloaders.SplashScreen"
+	splashScreenMinimumDisplayTime="0"
+	splashScreenScaleMode="zoom"
+	splashScreenImage="com.rmc.projects.happybirthday.view.components.splashscreenimages.SplashScreenImage"
+	
+	
 	creationComplete="_onCreationComplete(event)" 
+	
 	
 	>
 	

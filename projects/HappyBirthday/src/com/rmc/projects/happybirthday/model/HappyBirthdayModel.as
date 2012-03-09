@@ -29,7 +29,9 @@ package com.rmc.projects.happybirthday.model
 	//  Imports
 	//--------------------------------------
 	import com.rmc.projects.happybirthday.controller.signals.CurrentSongChangedSignal;
+	import com.rmc.projects.happybirthday.controller.signals.GuestChangedSignal;
 	import com.rmc.projects.happybirthday.controller.signals.SelectedLanguageChangeSignal;
+	import com.rmc.projects.happybirthday.model.vo.GuestVO;
 	import com.rmc.projects.happybirthday.model.vo.LanguageVO;
 	import com.rmc.projects.happybirthday.model.vo.SongVO;
 	
@@ -64,15 +66,36 @@ package com.rmc.projects.happybirthday.model
 		/**
 		 *  The current song to show
 		 */		
-		/**
-		 *  
-		 */		
 		private var _currentSong : SongVO;
 		public function get currentSong () 					: SongVO 	{ return _currentSong; }
 		public function set currentSong (aValue : SongVO) 	: void 		{ 
 			_currentSong = aValue; 
 			currentSongChangedSignal.dispatch (_currentSong);		
 		
+		}
+		
+		/**
+		 *  The guest about which we are singing 
+		 * 
+		 */		
+		private var _guestVO : GuestVO;
+		public function get guestVO () 					: GuestVO 	{ return _guestVO; }
+		public function set guestVO (aValue : GuestVO) 	: void 		{ 
+			
+			_guestVO = aValue; 
+			//HERE WE ASSUME ITS THE GENDER THAT IS CHANGING *BEFORE* THEN NAME EVER WAS USER-SET
+			if (_guestVO.name == GuestVO.DEFAULT_NAME_MALE || _guestVO.name == GuestVO.DEFAULT_NAME_FEMALE) {
+				
+				//SET THE NAME BASED ON GENDER (AGAIN THIS IS *ONLY* IF THE NAME WAS NEVER USER-SET
+				if (_guestVO.isMale==true) {
+					_guestVO.name = GuestVO.DEFAULT_NAME_MALE;
+				} else {
+					_guestVO.name = GuestVO.DEFAULT_NAME_FEMALE;
+					
+				}
+			}
+			
+			guestChangedSignal.dispatch (_guestVO);
 		}
 		
 		
@@ -94,6 +117,15 @@ package com.rmc.projects.happybirthday.model
 		 * 
 		 */	
 		public var selectedLanguageChangedSignal : SelectedLanguageChangeSignal;
+		
+		
+		/**
+		 * Signal: Marks a change to the <code>HappyBirthdayModel</code>
+		 * 
+		 * MUST BE CUSTOM TYPE: ONLY IF MAPPED TO A COMMAND
+		 * 
+		 */	
+		public var guestChangedSignal : GuestChangedSignal;
 		
 		
 		/**
@@ -132,11 +164,22 @@ package com.rmc.projects.happybirthday.model
 			languagesFullListChangedSignal 	= new Signal ();
 			selectedLanguageChangedSignal 	= new SelectedLanguageChangeSignal ();
 			currentSongChangedSignal 		= new CurrentSongChangedSignal ();
+			guestChangedSignal 				= new GuestChangedSignal ();
 			
 			//PROPERTIES
 			_selectedLanguage 	= null;
 			_currentSong		= null;
-			languagesFullList 	= [{name: "(Select A Language)", data : null}, {name: "English", data : "ENGLISH"}, {name: "Portuguese", data : "PORTUGUESE"}]
+			languagesFullList 	= [];//replaced when languages loads
+			
+			//SET INITIAL GUEST (THIS IS 'WHO' WE ARE SIGNING TO)
+			var isMale_boolean : Boolean = true;
+			var name_str : String;
+			if (isMale_boolean) {
+				name_str = GuestVO.DEFAULT_NAME_MALE;
+			} else {
+				name_str = GuestVO.DEFAULT_NAME_FEMALE;
+			}
+			_guestVO			= new GuestVO (name_str, isMale_boolean);
 		}
 		
 		//--------------------------------------
@@ -160,7 +203,6 @@ package com.rmc.projects.happybirthday.model
 			//	USE SETTER
 			currentSong =  new SongVO (song_xmllist.title.toString(), song_xmllist.lyrics.toString(), song_xmllist.@languageCode);
 			
-			trace (currentSong.title);
 		}
 
 	

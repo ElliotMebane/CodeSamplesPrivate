@@ -27,15 +27,21 @@ package com.rmc.projects.happybirthday.view
 	//--------------------------------------
 	//  Imports
 	//--------------------------------------
+	import com.rmc.projects.happybirthday.AssetManager;
 	import com.rmc.projects.happybirthday.controller.signals.ClearSelectedLanguageSignal;
 	import com.rmc.projects.happybirthday.controller.signals.LoadPhrasesModelSignal;
 	import com.rmc.projects.happybirthday.model.HappyBirthdayModel;
 	import com.rmc.projects.happybirthday.model.PhrasesModel;
 	import com.rmc.projects.happybirthday.model.events.PhrasesModelEvent;
 	import com.rmc.projects.happybirthday.model.vo.SongVO;
+	import com.rmc.projects.happybirthday.utils.CSSUtility;
+	import com.rmc.projects.happybirthday.utils.DensityUtil;
+	import com.rmc.projects.happybirthday.utils.SongLyricsFilter;
 	import com.rmc.projects.happybirthday.view.components.views.SongViewUI;
 	
 	import flash.events.MouseEvent;
+	import flash.system.Capabilities;
+	import flash.text.StyleSheet;
 	
 	import org.robotlegs.mvcs.Mediator;
 	
@@ -118,9 +124,9 @@ package com.rmc.projects.happybirthday.view
 		{
 			//  Super
 			super.onRegister()
-				
+			
 			// 	View Listeners
-			songViewUI.backButtonClick.add (_onHomeButtonClick);
+			songViewUI.backButtonClick.add  (_onHomeButtonClick);
 			
 			//	Context Listeners
 			happyBirthdayModel.currentSongChangedSignal.add (_onCurrentSongChanged);
@@ -170,6 +176,21 @@ package com.rmc.projects.happybirthday.view
 		
 		//CONTEXT
 		/**
+		 * Handles the Signal: <code>ChangedPhrasesModelSignal</code>.
+		 * 
+		 * @param aEvent <code>PhrasesModelEvent</code> The incoming aEvent payload.
+		 *  
+		 * @return void
+		 * 
+		 */
+		override protected function _onPhrasesModelChanged (aEvent : PhrasesModelEvent):void
+		{
+			super._onPhrasesModelChanged(aEvent);
+			
+			_doShowSong();
+		}
+		
+		/**
 		 * Handles the Signal: <code>ChangedMessageModelSignal</code>.
 		 * 
 		 * @param String <code>aMessage</code> The incoming aEvent payload.
@@ -179,28 +200,66 @@ package com.rmc.projects.happybirthday.view
 		 */
 		private function _onCurrentSongChanged (aSongVO : SongVO):void
 		{
+			_doShowSong();
 			
-			
-			//SET MESSAGE
-			if (aSongVO == null || aSongVO.lyrics == "") {
+		}
+		
+		/**
+		 * Wait for both PhrasesModel and HappyBirthdayModel to 
+		 * send data (both are fast but the order is uknown)
+		 * 
+		 */
+		private function _doShowSong () : void
+		{
+			//WAIT FOR BOTH TO BE READY
+			if (songViewUI.phrasesVO != null && happyBirthdayModel.currentSong != null && happyBirthdayModel.selectedLanguage != null) {
 				
-				//MOBILE REQUIRES SPECIAL TREATMENT TO RENDER HTML, BUT IT WORKS GREAT!
-				StyleableTextField(songViewUI.textarea.textDisplay).htmlText = "";
+				//UPDATE TITLE
+				songViewUI.title = happyBirthdayModel.selectedLanguage.title; //+ songViewUI.phrasesVO.songViewTitle_str;
 				
-			} else {
+				//STYLES, TODO - optimize - maybe move this to happen just once?
+				CSSUtility.doPrepareStyleableTextField ( StyleableTextField(songViewUI.textarea.textDisplay) );
+				StyleableTextField(songViewUI.textarea.textDisplay).wordWrap = true;
+				StyleableTextField(songViewUI.textarea.textDisplay).selectable = true;
+				
+				
+				//DO REPLACEMENTS for name/gender - the title too may have some replacements
+				var title_str : String = SongLyricsFilter.filterLyricsForGuestVO (happyBirthdayModel.currentSong.title, happyBirthdayModel.guestVO);
+				var lyrics_str : String = SongLyricsFilter.filterLyricsForGuestVO (happyBirthdayModel.currentSong.lyrics, happyBirthdayModel.guestVO);
 				
 				//GRAB VALUE
-				//MOBILE REQUIRES SPECIAL TREATMENT TO RENDER HTML, BUT IT WORKS GREAT!
-				var message_str : String;
-				message_str = "<B>" + happyBirthdayModel.currentSong.title + "</B>";
+				var message_str : String = "";
+				message_str +=  CSSUtility.WrapWithSpan( title_str, CSSUtility.SONG_NAME);
 				message_str += "<BR>";
-				message_str += happyBirthdayModel.currentSong.lyrics;
 				message_str += "<BR>";
+				message_str +=  CSSUtility.WrapWithSpan( lyrics_str, CSSUtility.SONG_BODY);
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "DEBUGGING INFO...";
+				message_str += "<BR>";
+				message_str += " .screenDPI      = "+Capabilities.screenDPI;
+				message_str += "<BR>";
+				message_str += " .getRuntimeDPI() = "+DensityUtil.getRuntimeDPI();
+				message_str += "<BR>";
+				//
 				StyleableTextField(songViewUI.textarea.textDisplay).htmlText = message_str;
 			}
 			
 		}
-
+		
+		
 		
 	}
 }

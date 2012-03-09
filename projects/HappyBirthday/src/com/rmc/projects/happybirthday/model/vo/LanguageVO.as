@@ -27,6 +27,8 @@ package com.rmc.projects.happybirthday.model.vo
 	//--------------------------------------
 	//  Imports
 	//--------------------------------------
+	import com.rmc.projects.happybirthday.AssetManager;
+	
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
 	
@@ -75,7 +77,17 @@ package com.rmc.projects.happybirthday.model.vo
 
 		}
 
-
+		//--------------------------------------
+		//  Method
+		//--------------------------------------
+		/**
+		 * This is the constructor.
+		 * 
+		 */
+		public function toString () : String 
+		{
+			return "[LanguageVO "+title+"]";
+		}
 		
 	}
 }

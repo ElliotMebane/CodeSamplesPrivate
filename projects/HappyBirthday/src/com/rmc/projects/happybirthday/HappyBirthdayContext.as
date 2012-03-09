@@ -28,18 +28,22 @@ package com.rmc.projects.happybirthday
 	//--------------------------------------
 	//  Imports
 	//--------------------------------------
-	import com.rmc.projects.happybirthday.controller.ClearSelectedLanguageCommand;
-	import com.rmc.projects.happybirthday.controller.LoadHappyBirthdayModelCommand;
-	import com.rmc.projects.happybirthday.controller.LoadPhrasesCommand;
-	import com.rmc.projects.happybirthday.controller.LoadSongCommand;
-	import com.rmc.projects.happybirthday.controller.SelectedLanguageChangeCommand;
-	import com.rmc.projects.happybirthday.controller.ShutdownCommand;
-	import com.rmc.projects.happybirthday.controller.StartupCommand;
+	import com.rmc.projects.happybirthday.controller.commands.ClearSelectedLanguageCommand;
+	import com.rmc.projects.happybirthday.controller.commands.GuestChangeCommand;
+	import com.rmc.projects.happybirthday.controller.commands.LoadHappyBirthdayModelCommand;
+	import com.rmc.projects.happybirthday.controller.commands.LoadPhrasesCommand;
+	import com.rmc.projects.happybirthday.controller.commands.LoadSongCommand;
+	import com.rmc.projects.happybirthday.controller.commands.SelectedLanguageChangeCommand;
+	import com.rmc.projects.happybirthday.controller.commands.ShutdownCommand;
+	import com.rmc.projects.happybirthday.controller.commands.SocialButtonClickedCommand;
+	import com.rmc.projects.happybirthday.controller.commands.StartupCommand;
 	import com.rmc.projects.happybirthday.controller.signals.ClearSelectedLanguageSignal;
+	import com.rmc.projects.happybirthday.controller.signals.GuestChangeSignal;
 	import com.rmc.projects.happybirthday.controller.signals.LoadHappyBirthdayModelSignal;
 	import com.rmc.projects.happybirthday.controller.signals.LoadPhrasesModelSignal;
 	import com.rmc.projects.happybirthday.controller.signals.LoadSongSignal;
 	import com.rmc.projects.happybirthday.controller.signals.SelectedLanguageChangeSignal;
+	import com.rmc.projects.happybirthday.controller.signals.SocialButtonClickedSignal;
 	import com.rmc.projects.happybirthday.controller.signals.ViewNavigatorPopViewSignal;
 	import com.rmc.projects.happybirthday.controller.signals.ViewNavigatorPushViewSignal;
 	import com.rmc.projects.happybirthday.model.HappyBirthdayModel;
@@ -132,12 +136,11 @@ package com.rmc.projects.happybirthday
 			phrasesModel.langCode 			= PhrasesModel.EN;
 			injector.mapValue		(PhrasesModel, phrasesModel);
 			injector.mapSingleton	(HappyBirthdayModel);			//Instantiated automatically by RL	
-			injector.mapSingleton	(ViewNavigatorPushViewSignal);	
-			injector.mapSingleton	(ViewNavigatorPopViewSignal);	
 			
 			//SIGNALS SETUP WITHIN THIS CONTEXT - 1 OF 2: SIGNALS THAT ARE *NOT* MAPPED TO COMMANDS, BUT JUST OBSERVED DIRECTLY
 			//b. RESPONSES
-			//injector.mapSingleton(Some_signal_class); //not needed in our example
+			injector.mapSingleton	(ViewNavigatorPushViewSignal);	
+			injector.mapSingleton	(ViewNavigatorPopViewSignal);	
 			
 		}
 		
@@ -170,7 +173,9 @@ package com.rmc.projects.happybirthday
 			//a. REQUESTS
 			signalCommandMap.mapSignalClass(SelectedLanguageChangeSignal,	SelectedLanguageChangeCommand);
 			signalCommandMap.mapSignalClass(LoadSongSignal,					LoadSongCommand);
+			signalCommandMap.mapSignalClass(GuestChangeSignal,				GuestChangeCommand);
 			signalCommandMap.mapSignalClass(ClearSelectedLanguageSignal,    ClearSelectedLanguageCommand);
+			signalCommandMap.mapSignalClass(SocialButtonClickedSignal,    	SocialButtonClickedCommand);
 			//
 			signalCommandMap.mapSignalClass(LoadPhrasesModelSignal,   		LoadPhrasesCommand);
 			signalCommandMap.mapSignalClass(LoadHappyBirthdayModelSignal,  	LoadHappyBirthdayModelCommand);

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- containers\mobile\myComponents\MySplashScreen.mxml -->
+<s:SplashScreenImage xmlns:fx="http://ns.adobe.com/mxml/2009" 
+					 xmlns:s="library://ns.adobe.com/flex/spark"
+					 
+					 >
+	
+	<!-- 
+	
+		Default splashscreen image.
+	
+			* This will be used in all cases UNLESS there 
+	 		  is another more specific case below that is correct
+	
+	-->
+	<s:SplashScreenImageSource 
+		source="@Embed('../assets_compiletime/images/splashscreenimages/Default.png')"
+		/>
+	
+	<!-- IPAD  -->
+	<s:SplashScreenImageSource 
+		source="@Embed('../assets_compiletime/images/splashscreenimages/Default-Portrait.png')"
+		dpi="160" 
+		aspectRatio="portrait"/>
+	
+	<s:SplashScreenImageSource 
+		source="@Embed('../assets_compiletime/images/splashscreenimages/Default-Landscape.png')"
+		dpi="160" 
+		aspectRatio="landscape"/>
+	
+</s:SplashScreenImage>
+
+
+
+<!-- Default splashscreen image. 
+
+<s:Button>
+<s:icon> 
+<s:MultiDPIBitmapSource source160dpi="@Embed('/assets/refresh160.png')" 
+source240dpi="@Embed('/assets/refresh240.png')" 
+source320dpi="@Embed('/assets/refresh320.png')"/>
+</s:icon> 
+</s:Button>
+
+<s:SplashScreenImageSource 
+	source="@Embed('../assets/logoDefault.jpg')"/>
+
+<s:SplashScreenImageSource 
+	source="@Embed('../assets/logo240Portrait.jpg')"
+	dpi="240" 
+	aspectRatio="portrait"/>
+
+<s:SplashScreenImageSource 
+	source="@Embed('../assets/logo240Landscape.jpg')"
+	dpi="240" 
+	aspectRatio="landscape"/>
+
+<s:SplashScreenImageSource 
+	source="@Embed('../assets/logo160.jpg')"
+	dpi="160" 
+	aspectRatio="portrait" 
+	minResolution="960"/>
+-->

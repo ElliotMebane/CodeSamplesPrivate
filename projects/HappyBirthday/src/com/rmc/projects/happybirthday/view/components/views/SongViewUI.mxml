@@ -4,9 +4,9 @@
 	xmlns:fx="http://ns.adobe.com/mxml/2009" 
 	xmlns:s="library://ns.adobe.com/flex/spark" 
 	
-	title= "{phrasesVO.songViewTitle_str}"
-	
-	creationComplete="_onCreationComplete(event)" xmlns:components="com.rmc.projects.happybirthday.view.components.*"
+	creationComplete="_onCreationComplete(event)" 
+	xmlns:components="com.rmc.projects.happybirthday.view.components.*"
+	xmlns:ads="com.rmc.projects.happybirthday.view.components.ads.*"
 	
 	>
 	
@@ -86,6 +86,19 @@
 				
 			}
 			
+			override protected function _onInitialize(aEvent:FlexEvent):void
+			{
+				super._onInitialize(aEvent);
+				
+				//HACK
+				//MainViewUI and SongViewUI are children of AbstractViewUI. THe abstract declares buttons which I'm unsure how to declare
+				//ONLY in the MainViewUI so I do it in the abstract and then make them invisible here.
+				//No problems, works fine as is.
+				information_button.visible = false;
+				information_button.width = 0;
+				
+			}
+			
 		]]>
 	</fx:Script>
 	
@@ -94,12 +107,40 @@
 	</fx:Declarations>
 	
 	<!-- Place any UI components here. -->	
-	<s:TextArea id = "textarea" 					
-				width="100%" height="100%" editable="false" selectable="true" horizontalScrollPolicy="on"
-				skinClass="spark.skins.mobile.TextAreaSkin"
+	<s:Group width="100%" height="100%" >
+		<s:layout>
+			<s:VerticalLayout
+				paddingBottom="10"
+				paddingLeft="10"
+				paddingRight="10"
+				paddingTop="10"
 				/>
+		</s:layout>
+		
+		<s:BorderContainer width="100%" height="100%">
+			<s:layout>
+				<s:VerticalLayout
+					paddingBottom="0"
+					paddingLeft="0"
+					paddingRight="0"
+					paddingTop="0"
+					/>
+			</s:layout>
+			
+			<s:TextArea id = "textarea" 					
+						width="100%" height="100%" 
+						editable="false" 
+						selectable="true" 
+						horizontalScrollPolicy="off" verticalScrollPolicy="on"
+						skinClass="spark.skins.mobile.TextAreaSkin"
+						/>
+		</s:BorderContainer>
+	</s:Group>
+	<!-- 
+	-->	
+	
 	
 	<!-- TODO - Dynamically Insert iAD/adMob Advertisement Here -->	
-	<components:MobileAdvertisement width="100%" height = "100" />
+	<ads:MobileAdvertisement width="100%" height = "100" />
 	
 </views:AbstractView>

@@ -28,7 +28,7 @@ package com.rmc.projects.happybirthday.model
 	//--------------------------------------
 	//  Imports
 	//--------------------------------------
-	import com.rmc.projects.happybirthday.controller.LoadSongCommand;
+	import com.rmc.projects.happybirthday.controller.commands.LoadSongCommand;
 	import com.rmc.projects.happybirthday.controller.signals.ChangedMessageModelSignal;
 	import com.rmc.projects.happybirthday.controller.signals.ChangedPhrasesModelSignal;
 	import com.rmc.projects.happybirthday.controller.signals.LoadSongSignal;

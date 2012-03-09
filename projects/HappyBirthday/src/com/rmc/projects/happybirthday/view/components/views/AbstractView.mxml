@@ -4,16 +4,22 @@
 	xmlns:s="library://ns.adobe.com/flex/spark" 
 	
 	destructionPolicy="auto"
+	initialize="_onInitialize(event)"
 	>
 	
 	<fx:Script>
 		<![CDATA[
+			import com.rmc.projects.happybirthday.AssetManager;
 			import com.rmc.projects.happybirthday.model.events.PhrasesModelEvent;
 			import com.rmc.projects.happybirthday.model.vo.PhrasesVO;
 			
 			import mx.events.FlexEvent;
 			
+			import org.osflash.signals.DeluxeSignal;
 			import org.osflash.signals.natives.NativeSignal;
+			
+			import spark.components.supportClasses.StyleableTextField;
+			import spark.events.ViewNavigatorEvent;
 			
 			//--------------------------------------
 			//  Properties
@@ -30,8 +36,30 @@
 			
 			
 			//PUBLIC
+			/**
+			 * Signal: Marks the ViewActivatedEvent
+			 * 
+			 */	
+			public var viewActivatedSignal : NativeSignal;
+			
+			/**
+			 * Signal: Marks the Button Click of one of several buttons
+			 * 
+			 */	
+			public var socialButtonClicked : NativeSignal;
+			
+			
 			
 			//PUBLIC CONST
+			/**
+			 * Signal: These are used by a command to check which social button id (used below in mxml) was clicked
+			 * 
+			 */	
+			public static const SOCIAL_EMAIL_BUTTON_ID : String = "socialEmail_button";
+			public static const SOCIAL_TWITTER_BUTTON_ID : String = "socialTwitter_button";
+			public static const SOCIAL_FACEBOOK_BUTTON_ID : String = "socialFacebook_button";
+			public static const SOCIAL_VIMEO_BUTTON_ID : String = "socialVimeo_button";
+			public static const SOCIAL_RMC_WEBSITE_BUTTON_ID : String = "socialRMCWebsite_button";
 			
 			
 			//PRIVATE
@@ -47,20 +75,27 @@
 			// Event Handlers
 			// --------------------------------------
 			/**
-			 * Handles the Signal: <code>ChangedPhrasesModelSignal</code>.
+			 * Handles the Event: <code>ViewNavigatorEvent.VIEW_ACTIVATE</code>.
 			 * 
-			 * @param aEvent <code>PhrasesModelEvent</code> The incoming aEvent payload.
+			 * @param aEvent <code>ViewNavigatorEvent</code> The incoming aEvent payload.
 			 *  
 			 * @return void
 			 * 
 			 */
-			protected function _onPhrasesModelChanged (aEvent : PhrasesModelEvent):void
+			protected function _onInitialize(event:FlexEvent):void
 			{
-				
-				var phrasesVO : PhrasesVO = aEvent.phrasesModel.phrasesVO;
+				//
+				viewActivatedSignal = new NativeSignal (this, ViewNavigatorEvent.VIEW_ACTIVATE, spark.events.ViewNavigatorEvent);
 				
 			}
 			
+			protected function createdByUS_textarea_creationComplete(event:FlexEvent):void
+			{
+				
+				(createdByUS_textarea.textDisplay as StyleableTextField).htmlText = phrasesVO.createdByUs_str;
+				(createdByUS_textarea.textDisplay as StyleableTextField).multiline = true;
+				
+			}
 			
 		]]>
 	</fx:Script>
@@ -80,9 +115,63 @@
 			paddingBottom	=	"10"
 			/>
 	</s:layout>
-		
+	
+	<s:navigationContent>
+		<s:Button id = "back_button" label = "{phrasesVO.backButtonLabel_str}"/>
+	</s:navigationContent>
 	<s:actionContent>
-		<s:Button id = "back_button" styleName="backButton" label = "{phrasesVO.backButtonLabel_str}"/>
+		<s:CalloutButton 
+			id		= "information_button" 
+			icon    = "@Embed('../assets_compiletime/fla/HappyBirthday_Assets_v1.swf#InformationIcon')"
+			
+			>
+			<s:calloutContent >
+				<s:VGroup width="100%"
+						  paddingBottom="15"
+						  paddingLeft="10"
+						  paddingRight="10"
+						  paddingTop="15"
+						  >
+					
+					
+					<s:TextArea width="100%" 
+								id="createdByUS_textarea" 
+								creationComplete="createdByUS_textarea_creationComplete(event)"
+								textAlign="center" borderVisible="false" selectable="false" editable="false"
+								skinClass="spark.skins.mobile.TextAreaSkin"
+								/>
+					<s:HGroup width="100%" horizontalAlign="center" id ="socialButtons_hgroup">
+						<s:Button id = "socialEmail_button" 		icon="{AssetManager.ICON_EMAIL}"     	/>
+						<s:Button id = "socialTwitter_button" 		icon="{AssetManager.ICON_TWITTER}"   	/>
+						<s:Button id = "socialFacebook_button" 		icon="{AssetManager.ICON_FACEBOOK}"  	/>
+						<s:Button id = "socialVimeo_button" 		icon="{AssetManager.ICON_VIMEO}"  		/>
+						<s:Button id = "socialRMCWebsite_button" 	icon="{AssetManager.ICON_RMC_WEBSITE}"  />
+					</s:HGroup>
+					<s:Label  width="100%" styleName="legalLabel" text="{phrasesVO.legalText_str}" textAlign="center" />
+					
+					
+					
+				</s:VGroup>
+			</s:calloutContent>
+		</s:CalloutButton>
+		<s:CalloutButton 
+			id		=	"share_button" 
+			label 	= 	"{phrasesVO.shareButtonLabel_str}"
+			visible="false"
+			>
+			<s:calloutContent>
+				<s:VGroup width="100%"
+						  paddingBottom="15"
+						  paddingLeft="10"
+						  paddingRight="10"
+						  paddingTop="15"
+						  >
+					<s:Button icon="{AssetManager.ICON_FACEBOOK}" label = "Share on Facebook" width="100%" skinClass="com.rmc.projects.happybirthday.skins.ShareButtonSkin" />
+					<s:Button icon="{AssetManager.ICON_TWITTER}" label = "Share on Twitter" width="100%" skinClass="com.rmc.projects.happybirthday.skins.ShareButtonSkin"  />
+					<s:Button icon="{AssetManager.ICON_EMAIL}"   label = "Share on Email" width="100%" skinClass="com.rmc.projects.happybirthday.skins.ShareButtonSkin" />
+				</s:VGroup>
+			</s:calloutContent>
+		</s:CalloutButton>
 	</s:actionContent>
 	
 </s:View>

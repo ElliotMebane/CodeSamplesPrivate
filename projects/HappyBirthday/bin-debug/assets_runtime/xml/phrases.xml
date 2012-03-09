@@ -1,20 +1,17 @@
 <phrases>
 	
 	<!-- DON'T ADD 'ES' HERE SO YOU CAN SEE HOW IT FAILS GRACEFULLY TO USE ENGLISH -->
-	<phrase name = "applicationTitle_str">
-		<EN>Happy Birthday</EN>
-	</phrase>
-	<phrase name = "loadMessageViewTitle_str">
+	<phrase name = "mainViewTitle_str">
 		<EN>Happy Birthday</EN>
 	</phrase>
 	<phrase name = "songViewTitle_str">
-		<EN>Song</EN>
+		<EN><![CDATA[ - 'Happy Birthday']]></EN>
 	</phrase>
 	
 	
 	<!-- ADD 'EN' & 'ES' TO ALL OF THESE -->
 	<phrase name = "loadMessageButtonLabel_str">
-		<EN>Load Song</EN>
+		<EN>View Song</EN>
 	</phrase>
 	<phrase name = "loadMessageButtonToolTip_str">
 		<EN>Click To Load The Song</EN>
@@ -24,8 +21,36 @@
 		<EN>Back</EN>
 	</phrase>
 	
+	<phrase name = "shareButtonLabel_str">
+		<EN>Share</EN>
+	</phrase>
+	
 	<phrase name = "backButtonToolTip_str">
 		<EN>Click To Go Back</EN>
+	</phrase>
+	
+	<phrase name = "guestNameLabel_str">
+		<EN>Name: </EN>
+	</phrase>
+	
+	<phrase name = "guestGenderLabel_str">
+		<EN>Gender: </EN>
+	</phrase>
+	
+	<phrase name = "guestGenderMaleRadioButtonLabel_str">
+		<EN>Male</EN>
+	</phrase>
+	
+	<phrase name = "guestGenderFemaleRadioButtonLabel_str">
+		<EN>Female</EN>
+	</phrase>
+	
+	<phrase name = "createdByUs_str">
+		<EN><![CDATA['Happy Birthday' Was Created By<BR>Rivello Multimedia Consulting.]]></EN>
+	</phrase>
+	
+	<phrase name = "legalText_str">
+		<EN><![CDATA[™ and © Rivello Multimedia Consulting 2005-2012.]]></EN>
 	</phrase>
 	
 	

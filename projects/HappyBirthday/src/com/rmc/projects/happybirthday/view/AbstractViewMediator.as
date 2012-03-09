@@ -29,7 +29,10 @@ package com.rmc.projects.happybirthday.view
 	import com.rmc.projects.happybirthday.model.events.PhrasesModelEvent;
 	import com.rmc.projects.happybirthday.view.components.views.AbstractView;
 	
+	import org.osflash.signals.natives.NativeSignal;
 	import org.robotlegs.mvcs.Mediator;
+	
+	import spark.events.ViewNavigatorEvent;
 	
 	//--------------------------------------
 	//  Imports
@@ -94,6 +97,10 @@ package com.rmc.projects.happybirthday.view
 			//Model
 			phrasesModel.changedPhrasesModelSignal.add (_onPhrasesModelChanged);
 			
+			//VIEW
+			(getViewComponent() as AbstractView).viewActivatedSignal.add (_onViewActivatedSignal);
+			
+			
 			//	RE-CALL EACH TIME THIS VIEW IS POPPED ON
 			//trace ("abm.onRegister() for " + getViewComponent());
 			loadPhrasesModelSignal.dispatch ();
@@ -129,9 +136,20 @@ package com.rmc.projects.happybirthday.view
 		{
 			
 			//WE SEE MAIN THEN SONG PROPERLY, WHEN WE RETURN TO MAIN getViewComponent() is null, but somehow its phrases still render. Fine for now.
-			if (getViewComponent()) {
-				(getViewComponent() as AbstractView).phrasesVO = aEvent.phrasesModel.phrasesVO;
-			}
+			(getViewComponent() as AbstractView).phrasesVO = aEvent.phrasesModel.phrasesVO;
+		}
+		
+		/**
+		 * Handles the Event: <code>ViewNavigatorEvent.VIEW_ACTIVATE</code>.
+		 * 
+		 * @param aEvent <code>ViewNavigatorEvent</code> The incoming aEvent payload.
+		 *  
+		 * @return void
+		 * 
+		 */
+		protected function _onViewActivatedSignal (aEvent : ViewNavigatorEvent):void
+		{
+			
 		}
 		
 		

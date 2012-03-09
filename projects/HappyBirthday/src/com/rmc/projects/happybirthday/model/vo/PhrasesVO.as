@@ -59,16 +59,10 @@ package com.rmc.projects.happybirthday.model.vo
 		
 		//PUBLIC
 		/**
-		 * Display Text: Title for application
-		 * 
-		 */		
-		public var applicationTitle_str : String;
-		
-		/**
 		 * Display Text: Title for view
 		 * 
 		 */		
-		public var loadMessageViewTitle_str : String;
+		public var mainViewTitle_str : String;
 		
 		/**
 		 * Display Text: Title for view
@@ -89,16 +83,62 @@ package com.rmc.projects.happybirthday.model.vo
 		public var loadMessageButtonToolTip_str : String;
 		
 		/**
-		 * Display Text: Button label before interactivity.
+		 * Display Text: Button label
 		 * 
 		 */		
 		public var backButtonLabel_str : String;
+		
+		/**
+		 * Display Text: Button label
+		 * 
+		 */		
+		public var shareButtonLabel_str : String;
 		
 		/**
 		 * Display Text: Button tooltip  
 		 * 
 		 */		
 		public var backButtonToolTip_str : String;
+		
+		/**
+		 * Display Text: Label Text
+		 * 
+		 */		
+		public var guestNameLabel_str : String;
+
+		/**
+		 * Display Text: Label Text
+		 * 
+		 */		
+		public var guestGenderLabel_str : String;
+
+		/**
+		 * Display Text: Label Text
+		 * 
+		 */		
+		public var guestGenderMaleRadioButtonLabel_str : String;
+
+		/**
+		 * Display Text: Label Text
+		 * 
+		 */		
+		public var guestGenderFemaleRadioButtonLabel_str : String;
+		
+
+		/**
+		 * Display Text: Label Text
+		 * 
+		 */		
+		public var createdByUs_str : String;
+		
+
+		/**
+		 * Display Text: Label Text
+		 * 
+		 */		
+		public var legalText_str : String;
+		
+			
 
 		//--------------------------------------
 		//  Constructor

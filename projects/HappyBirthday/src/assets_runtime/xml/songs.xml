@@ -1,0 +1,428 @@
+<xml>
+
+	<!--		 -->
+	<languages>
+		<language title = "(Select A Language)" 	languageCode ="" />
+		<language title = "Arabic (Egypt)" 			languageCode ="AR" />
+		<language title = "Catalan" 				languageCode ="CA" />
+		<language title = "Czech" 					languageCode ="CZ" />
+		<language title = "Dutch" 					languageCode ="DU" />
+		<language title = "Faroese" 				languageCode ="FE" />
+		<language title = "Farsi" 					languageCode ="FA" />
+		<language title = "Finish" 					languageCode ="FI" />
+		<language title = "French" 					languageCode ="FR" />
+		<language title = "German" 					languageCode ="DE" />
+		<language title = "Greek" 					languageCode ="GR" />
+		<language title = "Hebrew" 					languageCode ="HE" />
+		<language title = "Indonesian" 				languageCode ="IN" />
+		<language title = "Irish" 					languageCode ="IR" />
+		<language title = "Italian" 				languageCode ="IT" />
+		<language title = "Japanese" 				languageCode ="JA" />
+		<language title = "Korean" 					languageCode ="KO" />
+		<language title = "Norwegian" 				languageCode ="NO" />
+		<language title = "Polish" 					languageCode ="PO" />
+		<language title = "Portuguese" 				languageCode ="PT" />
+		<language title = "Romanian" 				languageCode ="RO" />
+		<language title = "Russian" 				languageCode ="RU" />
+		<language title = "Serbian" 				languageCode ="SE" />
+		<language title = "Slovenian" 				languageCode ="SL" />
+		<language title = "Spanish" 				languageCode ="ES" />
+		<language title = "Swedish" 				languageCode ="SW" />
+		<language title = "Tagalog" 				languageCode ="TA" />
+		<language title = "Turkish" 				languageCode ="TU" />
+		<language title = "English" 				languageCode ="EN" />
+	</languages>
+	
+
+	
+	<!--		 -->
+	<songs>
+	
+	
+	
+	
+	<song languageCode = "EN">
+		<title>
+		<![CDATA[Happy Birthday]]>
+		</title>
+		<lyrics>
+<![CDATA[Happy birthday to you,
+Happy birthday to you,
+Happy birthday dear {name},
+Happy birthday to you.
+]]>
+		</lyrics>
+	</song>
+	
+	<song languageCode = "IN">
+		<title>
+		<![CDATA[Slamat Ulang Tahun]]>
+		</title>
+		<lyrics>
+<![CDATA[Slamat ulang tahun,
+Slamat ulang tahun,
+Slamat ulang tahun,
+Slamat ulang tahun.
+]]>
+		</lyrics>
+	</song>
+	
+	<song languageCode = "FI">
+		<title>
+		<![CDATA[Paljon Onnea Vaan]]>
+		</title>
+		<lyrics>
+<![CDATA[Paljon onnea vaan,
+Paljon onnea vaan,
+Paljon onnea {name},
+Paljon onnea vaan.
+]]>
+		</lyrics>
+	</song>
+	
+	<song languageCode = "DU">
+		<title>
+		<![CDATA[Lang zal {gender:values(hij,ze)} leven]]>
+		</title>
+		<lyrics>
+<![CDATA[Lang zal {gender:values(hij,ze)} leven,
+Lang zal {gender:values(hij,ze)} leven,
+Lang zal {gender:values(hij,ze)} leven in de gloria.
+In de glo-ri-a, in de glo-ri-a.
+Hiep hiep hiep hoera.
+]]>
+		</lyrics>
+	</song>
+
+	<song languageCode = "KO">
+		<title>
+		<![CDATA[Sengil Chukhahamnida]]>
+		</title>
+		<lyrics>
+<![CDATA[Sengil chukhahamnida,
+Sengil chukhahamnida,
+Saranghanun {name},
+Sengil chukhahamnida.
+]]>
+		</lyrics>
+	</song>
+	
+	<song languageCode = "HE">
+		<title>
+		<![CDATA[Hayom Yom Huledet]]>
+		</title>
+		<lyrics>
+<![CDATA[Hayom Yom Huledet,
+Hayom Yom Huledet,
+Hayom Yom Huledet l'{name}.
+
+Chag {gender:values(lo,la)} sameach,
+v'zer {gender:values(lo,la)} pore'ach,
+Hayom yom huledet l'{name}.
+]]>
+		</lyrics>
+	</song>
+	
+	<song languageCode = "FE">
+		<title>
+		<![CDATA[Tillukku Til Tín]]>
+		</title>
+		<lyrics>
+<![CDATA[Tillukku til tín,
+Tillukku til tín,
+Tillukku góði {name},
+Tillukku til tín.
+]]>
+		</lyrics>
+	</song>
+	
+	<song languageCode = "JA">
+		<title>
+		<![CDATA[Happii Baasudei Tu Yu.]]>
+		</title>
+		<lyrics>
+<![CDATA[Happii baasudei tu yu,
+Happii baasudei tu yu,
+Happii baasudei tu yu {name},
+Happii baasudei tu yu.
+]]>
+		</lyrics>
+	</song>
+	
+	
+	<song languageCode = "FA">
+		<title>
+		<![CDATA[Mubarak, Solgirít Mubarak!]]>
+		</title>
+		<lyrics>
+<![CDATA[Mubarak, solgirít mubarak!
+Mubarak, solgirít mubarak!
+Mubarak, solgirít mubarak!
+Mubarak, solgirít mubarak!
+]]>
+		</lyrics>
+	</song>
+
+	<song languageCode = "RU">
+		<title>
+		<![CDATA[День Рожденья]]>
+		</title>
+		<lyrics>
+<![CDATA[Как на {name} День Рожденья,
+Испекли мы каравай,
+Вот такой ширины,
+Вот такой вышины,
+Каравай, каравай - кого хочешь выбирай.
+]]>
+		</lyrics>
+	</song>
+
+	
+	<song languageCode = "NO">
+		<title>
+		<![CDATA[Gratulerer Med Da'n]]>
+		</title>
+		<lyrics>
+<![CDATA[Gratulerer med da'n,
+Gratulerer med da'n,
+Gratulerer kjære X,
+Gratulerer med da'n.
+]]>
+		</lyrics>
+	</song>
+	
+	<song languageCode = "GR">
+		<title>
+		<![CDATA[Na Zisis]]>
+		</title>
+		<lyrics>
+<![CDATA[Na zisis ...... {name} kai hronia polla,
+Megalos na ginis me aspra mallia,
+Pantou na skorpizis tis gnosis to fos,
+Kai oli na lene na {gender:values(enas,mia)} sofos!
+]]>
+		</lyrics>
+	</song>
+	
+	
+	<song languageCode = "TU">
+		<title>
+		<![CDATA[Lyi Ki Doğdun]]>
+		</title>
+		<lyrics>
+<![CDATA[Lyi ki doğdun {name},
+Lyi ki doğdun {name},
+Lyi ki doğdun, iyi ki doğdun,
+Mutlu yıllar sana.
+]]>
+		</lyrics>
+	</song>
+	
+	
+	
+	<song languageCode = "SL">
+		<title>
+		<![CDATA[Vse Najboljše Za Te]]>
+		</title>
+		<lyrics>
+<![CDATA[Vse najboljše za te
+Vse najboljše za te
+Vse najboljše {gender:values(draga,za)} {name}
+Vse najboljše za te! 
+]]>
+		</lyrics>
+	</song>
+	
+
+	
+	<song languageCode = "PO">
+		<title>
+		<![CDATA[Sto Lat]]>
+		</title>
+		<lyrics>
+<![CDATA[Sto lat, sto lat,
+Niech zyje, zyje nam.
+Sto lat, sto lat,
+Niech zyje, zyje nam,
+Jeszcze raz, jeszcze raz, 
+Niech zyje, zyje nam,
+Niech zyje nam!  
+]]>
+		</lyrics>
+	</song>
+	
+	
+	
+	
+	<song languageCode = "SW">
+		<title>
+		<![CDATA[Ja, Må Du Leva]]>
+		</title>
+		<lyrics>
+<![CDATA[Ja, må du {gender:values(han,hon)} leva, Ja, 
+Må du {gender:values(han,hon)} leva,
+Ja, må du {gender:values(han,hon)} leva uti hundrade år.
+Ja, må du {gender:values(han,hon)} leva, Ja, 
+Må du {gender:values(han,hon)} leva,
+Ja, må du {gender:values(han,hon)} leva uti hundrade år. 
+]]>
+		</lyrics>
+	</song>
+	
+	<song languageCode = "AR">
+		<title>
+		<![CDATA[Sana Hilwa Alayk]]>
+		</title>
+		<lyrics>
+<![CDATA[Sana hilwa, ya gamiil,
+Sana hilwa, ya gamiil,
+Sana hilwa, ya {name},
+Sana hilwa, ya gamiil.
+]]>
+		</lyrics>
+	</song>
+	
+	<song languageCode = "TA">
+		<title>
+		<![CDATA[Maligayang Bati]]>
+		</title>
+		<lyrics>
+<![CDATA[Maligayang bati,
+Sa iyong pagsilang.
+Maligayang-maligaya,
+Maligayang bati.
+]]>
+		</lyrics>
+	</song>
+	
+	<song languageCode = "RO">
+		<title>
+		<![CDATA[Mulţi Ani Trăiască]]>
+		</title>
+		<lyrics>
+<![CDATA[Mulţi ani trăiască, mulţi ani trăiască,
+La mulţi ani!
+Cine să trăiască, cine să trăiască?
+La mulţi ani!
+{name} să trăiască, {name} să trăiască!
+La mulţi ani!
+]]>
+		</lyrics>
+	</song>
+	
+	<song languageCode = "IR">
+		<title>
+		<![CDATA[Shona Breathla' Dhuit]]>
+		</title>
+		<lyrics>
+<![CDATA[Shona breathla' dhuit,
+Shona breathla' dhuit,
+Shona breatha' a {name},
+Shona breathla' dhuit.
+]]>
+		</lyrics>
+	</song>
+	
+		
+		<song languageCode = "ES">
+			<title><![CDATA[Cumpleaños Feliz]]></title>
+			<lyrics>
+<![CDATA[Que los cumplas feliz,
+Que los cumplas feliz,
+Que los cumplas {name},
+Que los cumplas feliz.
+]]>
+			</lyrics>
+		</song>
+		
+		<song languageCode = "IT">
+			<title><![CDATA[Tanti Auguri]]></title>
+			<lyrics>
+<![CDATA[Tanti auguri a te,
+Tanti auguri a te,
+Tanti auguri {name},
+Tanti auguri a te.
+]]>
+			</lyrics>
+		</song>
+		
+		<song languageCode = "FR">
+			<title><![CDATA[Joyeax Anniversaire]]></title>
+			<lyrics>
+<![CDATA[Joyeux Anniversaire,
+Joyeux Anniversaire,
+Joyeux Anniversaire {gender:values(cher,chère)} {name},
+Joyeux Anniversaire!
+]]>
+			</lyrics>
+		</song>
+		
+		
+		<song languageCode = "SE">
+			<title><![CDATA[Danas Nam Je Divan Dan]]></title>
+			<lyrics>
+<![CDATA[Danas nam je divan dan, divan dan, divan dan,
+{gender:values(Našem,Našoj)} {name} rođendan, rođendan, rođendan,
+{gender:values(Živeo&#44; živeo,Živela&#44; živela)},
+I srećan nam {gender:values(bio,bila)},
+{gender:values(Živeo&#44; živeo,Živela&#44; živela)},
+I srećan nam {gender:values(bio,bila)}!
+]]>
+			</lyrics>
+		</song>
+		
+		<song languageCode = "CA">
+			<title><![CDATA[Moltes Felicitats]]></title>
+			<lyrics>
+<![CDATA[Moltes felicitats,
+Moltes felicitats,
+Et desitgem tots {name},
+Moltes felicitats!
+]]>
+			</lyrics>
+		</song>
+		
+
+
+
+		<song languageCode = "DE">
+			<title><![CDATA[Zum Geburtstag Viel Glück!]]></title>
+			<lyrics>
+<![CDATA[Zum geburtstag viel glück!
+Zum geburtstag viel glück!
+Zum geburtstag {gender:values(lieber,liebe)} {name}
+Zum geburtstag viel glück!
+]]>
+			</lyrics>
+		</song>	
+
+		<song languageCode = "CZ">
+			<title><![CDATA[Štěstí, zdraví]]></title>
+			<lyrics>
+<![CDATA[Štěstí, zdraví, štěstí zdraví, hlavně to zdraví!
+Štěstí, zdraví, štěstí zdraví, hlavně to zdraví!
+Do sta let, do sta let, ať žije {name}, do sta 
+let, do sta let, ať žije nám!
+Do sta let, do sta let, ať žije {name}, do sta 
+let, do sta let, ať žije nám!
+Štěstí, zdraví, štěstí zdraví, hlavně to zdraví!
+Štěstí, zdraví, štěstí zdraví, hlavně to zdraví! 
+]]>
+			</lyrics>
+		</song>	
+
+		<song languageCode = "PT">
+			<title><![CDATA[Parabéns A Você]]></title>
+			<lyrics>
+<![CDATA[Parabéns a você,
+Nesta data querida,
+Muitas felicidades,
+Muitos anos de vida. 
+]]>
+			</lyrics>
+		</song>	
+
+	</songs>
+
+</xml>
+	

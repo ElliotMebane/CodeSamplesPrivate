@@ -1,47 +1,105 @@
 /* CSS file */
 @namespace s "library://ns.adobe.com/flex/spark";
 @namespace mx "library://ns.adobe.com/flex/mx";
+@namespace supportClasses "spark.components.supportClasses.*";
+@namespace views "com.rmc.projects.happybirthday.view.components.views.*";
 
+
+/***************************************
+**
+**  Properties
+**
+****************************************/
+
+/* SET CORE STYLES	(anything unique by DPI needed?)		*/
+
+
+/* MEDIA QUERY - 160 = iPAD */
 s|ViewNavigatorApplication {
 	fontFamily: Candara;
-
+}
+/* MEDIA QUERY - 240 = iphone3g (or other things?)  */
+@media (application-dpi: 240) { 
+	s|ViewNavigatorApplication {
+		fontFamily: Candara;
+	}	
+}
+/* MEDIA QUERY - 320 = iphone4  */
+@media (application-dpi: 320) { 
+	s|ViewNavigatorApplication {
+		fontFamily: Candara;
+	}
 }
 
+s|SpinnerList {
+	fontSize : 45;
+}
+
+/***************************************
+**
+**  basic 'frame' around each view (page)
+**
+****************************************/
+views|AbstractView {
+	backgroundColor: #808080	;
+}
+
+s|BorderContainer {
+	cornerRadius : 20;
+	borderVisible: false;
+	backgroundColor : #808080;
+}
+
+
+/***************************************
+**
+**  Text
+**
+****************************************/
+
+/* SET EXCEPTION THAT NEEDS CFF FOR CORE STYLES			*/
+s|Label {
+	
+	fontFamily : Candara_embedAsCFF;
+}
+/* SET EXCEPTION THAT NEEDS CFF FOR CORE STYLES			*/
+.legalLabel {
+	fontSize : 20;
+	paddingTop: 5;
+}
+/* SET EXCEPTION THAT NEEDS CFF FOR CORE STYLES			*/
+.guestCalloutLabel {
+	fontSize : 35; /* match the spinner, sort've */
+}
+
+/* SET EXCEPTION THAT NEEDS CFF FOR CORE STYLES			*/
 s|ActionBar
 {
-	titleAlign: left;
+	titleAlign: center;
 	defaultButtonAppearance:beveled;
 }
 
-.backButton
-{
-	skinClass:ClassReference("spark.skins.mobile.BeveledBackButtonSkin");
-}
 
 
-s|ActionBar #titleDisplay
-{
-	fontSize: 40;
-}
 
-s|TabbedViewNavigator #tabBar
-{
-	iconPlacement:left;
-	textDecoration:underline;
-}
 
-s|ActionBar.beveled s|Group#navigationGroup s|Button
-{
-	/* use the rounded button instead of the arrow button */
-	skinClass: ClassReference("spark.skins.mobile.BeveledActionButtonSkin");
-}
-
+/***************************************
+**
+**  Font Faces
+**
+****************************************/
 
 /* Fonts. Only 1 is in use above.  Experiment with others */
 @font-face {
 	src:url("../assets_compiletime/fonts/Candara.ttf");
 	fontFamily: Candara;
 	embedAsCFF: false; /* false for mobile */
+}
+
+@font-face {
+	src:url("../assets_compiletime/fonts/Candara.ttf");
+	fontFamily: Candara_embedAsCFF;
+	embedAsCFF: true; /* false for mobile */
 }
 
 @font-face {

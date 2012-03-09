@@ -28,6 +28,7 @@ package com.rmc.projects.happybirthday.services
 	//--------------------------------------
 	//  Imports
 	//--------------------------------------
+	import com.rmc.projects.happybirthday.AssetManager;
 	import com.rmc.projects.happybirthday.model.PhrasesModel;
 	import com.rmc.projects.happybirthday.model.vo.PhrasesVO;
 	
@@ -94,7 +95,7 @@ package com.rmc.projects.happybirthday.services
 			//SETUP
 			var xmlDoc:XML = new XML();
 			var urlLoader:URLLoader = new URLLoader();
-			var urlRequest:URLRequest = new URLRequest("./assets_runtime/xml/phrases.xml");
+			var urlRequest:URLRequest = new URLRequest(AssetManager.PHRASES_XML_URL);
 			
 			//LISTEN
 			urlLoader.addEventListener(Event.COMPLETE, 			_onComplete);
