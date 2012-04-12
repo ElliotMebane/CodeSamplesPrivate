@@ -6,8 +6,10 @@
 	
 	creationComplete="_onCreationComplete(event)" 
 	xmlns:components="com.rmc.projects.happybirthday.view.components.*"
-	xmlns:ads="com.rmc.projects.happybirthday.view.components.ads.*"
-	
+	xmlns:ads="com.rmc.projects.happybirthday.view.components.ads.*" 
+	xmlns:components1="com.rmc.projects.nativeadscontainer.components.*" 
+	xmlns:local="*"
+
 	>
 	
 	<fx:Script>
@@ -56,6 +58,12 @@
 			 */
 			public var backButtonClick : NativeSignal;
 			
+			/**
+			 * Signal: When 'WebView' is Clicked
+			 * 
+			 */
+			public var webViewButtonClick : NativeSignal;
+			
 			
 			//PUBLIC CONST
 			
@@ -82,7 +90,8 @@
 			 */
 			private function _onCreationComplete(aEvent : FlexEvent) : void
 			{
-				backButtonClick = new NativeSignal 	(back_button, 	MouseEvent.CLICK, MouseEvent);
+				backButtonClick 	= new NativeSignal 	(back_button, 		MouseEvent.CLICK, MouseEvent);
+				webViewButtonClick 	= new NativeSignal 	(webView_button, 	MouseEvent.CLICK, MouseEvent);
 				
 			}
 			
@@ -96,6 +105,8 @@
 				//No problems, works fine as is.
 				information_button.visible = false;
 				information_button.width = 0;
+				//
+				webView_button.visible = true;
 				
 			}
 			
@@ -139,8 +150,16 @@
 	<!-- 
 	-->	
 	
+	<!-- 
 	
-	<!-- TODO - Dynamically Insert iAD/adMob Advertisement Here -->	
-	<ads:MobileAdvertisement width="100%" height = "100" />
+	Dynamically Insert iAD/adMob Advertisement Within an Existing Layout. 
+	The 'live' sizing is fed to the API at startup, and again upon rotation, resizing, etc..
+	
+	1) unitID = "{insert_your_admob_code_here}" or externally as unitID = "{Passwords.AD_MOB_ID}" 
+	
+	2) Change all sizing parameters to meet you needs
+	
+	-->	
+	<local:NativeAdsContainerIPadBottom />
 	
 </views:AbstractView>

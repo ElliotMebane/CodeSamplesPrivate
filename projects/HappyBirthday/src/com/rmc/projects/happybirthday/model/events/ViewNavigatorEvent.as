@@ -28,9 +28,6 @@ package com.rmc.projects.happybirthday.model.events
 	//--------------------------------------
 	//  Imports
 	//--------------------------------------
-	import com.rmc.projects.happybirthday.model.PhrasesModel;
-	import com.rmc.projects.happybirthday.model.vo.PhrasesVO;
-	
 	import flash.events.Event;
 	
 	import spark.transitions.ViewTransitionBase;
@@ -38,15 +35,6 @@ package com.rmc.projects.happybirthday.model.events
 	/**
 	 * <p>Event: For changes-to and changes-from the ViewNavigator</p>
 	 * 
-	 * <p>AUTHOR  		: Samuel Asher Rivello (code [at] RivelloMultimediaConsulting [dot] com)</p>
-	 * <p>COMPANY 		: Rivello Multimedia Consulting</p>
-	 * <p>CREATION DATE 	: Apr 05, 2010</p>
-	 * 
-	 * @example Here is a code example.  
-	 * 
-	 * <listing version="3.0" >
-	 * 	//Code example goes here.
-	 * </listing>
 	 *
 	 */
 	public class ViewNavigatorEvent extends Event

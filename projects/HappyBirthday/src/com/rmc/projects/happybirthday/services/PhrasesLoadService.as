@@ -44,16 +44,6 @@ package com.rmc.projects.happybirthday.services
 	/**
 	 * <p>Handles the loading of all display text from XML</p>
 	 * 
-	 * <p>AUTHOR  		: Samuel Asher Rivello (code [at] RivelloMultimediaConsulting [dot] com)</p>
-	 * <p>COMPANY 		: Rivello Multimedia Consulting</p>
-	 * <p>CREATION DATE 	: Apr 05, 2010</p>
-	 * 
-	 * @example Here is a code example.  
-	 * 
-	 * <listing version="3.0" >
-	 * 	//Code example goes here.
-	 * </listing>
-	 *
 	 */
 	public class PhrasesLoadService extends Actor implements ILoadService
 	{

@@ -67,6 +67,13 @@ package com.rmc.projects.happybirthday.model.vo
 		 */		
 		public var languageCode : String;
 		
+		/**
+		 * 
+		 * Data: Used for showing the web page 
+		 * 
+		 */		
+		public var wikipediaURL : String;
+		
 
 		//--------------------------------------
 		//  Constructor
@@ -75,13 +82,14 @@ package com.rmc.projects.happybirthday.model.vo
 		 * This is the constructor.
 		 * 
 		 */
-		public function SongVO (aTitle_str : String, aLyrics_str : String, aLanguageCode_str : String)
+		public function SongVO (aTitle_str : String, aLyrics_str : String, aLanguageCode_str : String, aWikipediaURL_str : String)
 		{
 			//SUPER
 			super(); 
 			title 			= aTitle_str;
 			lyrics 			= aLyrics_str;
 			languageCode 	= aLanguageCode_str;
+			wikipediaURL    = aWikipediaURL_str;
 
 		}
 

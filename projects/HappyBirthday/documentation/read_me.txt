@@ -9,14 +9,14 @@
  //		Features: Robotlegs, AS3-Signals, CSS Styles, Custom Localization Solution.
  
  //	PROJECT SETUP DETAILS
- //		TYPE				: FLEX PROJECT
+ //		TYPE			: FLEX PROJECT
  //		IDE				: FLASH BUILDER 4.5.1
  //		TARGET			: Various Mobile Platforms/Devices using AIR 2.6 USING FLEX 4.5.1
  //		DEPENDENCIES		: Go to Project Properties -> Flex Build Path -> Library Path -> 'Add SWC Folder...' for folder 'libs' 	
  //		COMPILER ARGS   : -locale en_US 	
 
  //	DOCUMENTATION
- //		See './documentation' - Contains Any Instructions
+ //		See './documentation' - Contains Any Instructions and screenshots to help.
  
  // ASDOC
  //		It is probably possible to generate ASDoc for this project. I did not set it up.
@@ -25,6 +25,6 @@
  //		Checkout this folder via SVN per 'PROJECT SETUP DETAILS' above.
  
  //	WARNINGS
- //		None
+ //		Setting up the ANE is tricky. Some screenshots exist in this folder for iOS deployment.
  
  

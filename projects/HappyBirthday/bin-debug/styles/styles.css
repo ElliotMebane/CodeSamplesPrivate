@@ -78,8 +78,33 @@ s|ActionBar
 	titleAlign: center;
 	defaultButtonAppearance:beveled;
 }
+/*
+s|ActionBar { 
+	chromeColor: #00ff00; 
+	defaultButtonAppearance: normal; 
+	skinClass: ClassReference("spark.skins.mobile.ActionBarSkin"); 
+	
+	textShadowAlpha: .65; 
+	textShadowColor: #ff0000; 
+	paddingBottom: 1; paddingLeft: 0; paddingRight: 0; paddingTop: 0; 
+}
+*/
 
 
+/***************************************
+**
+**  Buttons
+**
+****************************************/
+s|Button 
+{
+	color: #030303;
+	fontStyle : bold;
+	textShadowColor : #f7f7f7;
+	textShadowAlpha: .5;
+	textAlpha : 1;
+	skinClass : ClassReference("spark.skins.mobile.BeveledActionButtonSkin")
+}
 
 
 

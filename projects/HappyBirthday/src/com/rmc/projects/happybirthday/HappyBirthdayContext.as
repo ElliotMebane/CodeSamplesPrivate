@@ -44,20 +44,21 @@ package com.rmc.projects.happybirthday
 	import com.rmc.projects.happybirthday.controller.signals.LoadSongSignal;
 	import com.rmc.projects.happybirthday.controller.signals.SelectedLanguageChangeSignal;
 	import com.rmc.projects.happybirthday.controller.signals.SocialButtonClickedSignal;
-	import com.rmc.projects.happybirthday.controller.signals.ViewNavigatorPopViewSignal;
-	import com.rmc.projects.happybirthday.controller.signals.ViewNavigatorPushViewSignal;
+	import com.rmc.projects.happybirthday.controller.signals.flexmobile.StageOrientationChangeSignal;
+	import com.rmc.projects.happybirthday.controller.signals.flexmobile.ViewNavigatorPopViewSignal;
+	import com.rmc.projects.happybirthday.controller.signals.flexmobile.ViewNavigatorPushViewSignal;
 	import com.rmc.projects.happybirthday.model.HappyBirthdayModel;
 	import com.rmc.projects.happybirthday.model.PhrasesModel;
 	import com.rmc.projects.happybirthday.services.HappyBirthdayLoadService;
 	import com.rmc.projects.happybirthday.services.ILoadService;
 	import com.rmc.projects.happybirthday.services.PhrasesLoadService;
-	import com.rmc.projects.happybirthday.view.AbstractViewMediator;
 	import com.rmc.projects.happybirthday.view.ApplicationMediator;
 	import com.rmc.projects.happybirthday.view.MainViewUIMediator;
 	import com.rmc.projects.happybirthday.view.SongViewUIMediator;
-	import com.rmc.projects.happybirthday.view.components.views.AbstractView;
+	import com.rmc.projects.happybirthday.view.WebViewUIMediator;
 	import com.rmc.projects.happybirthday.view.components.views.MainViewUI;
 	import com.rmc.projects.happybirthday.view.components.views.SongViewUI;
+	import com.rmc.projects.happybirthday.view.components.views.WebViewUI;
 	
 	import flash.events.Event;
 	
@@ -67,16 +68,6 @@ package com.rmc.projects.happybirthday
 	/**
 	 * <p>The Context is the 'glue' or 'brains of the application 
 	 * 			    linking together the Model, View, Controller, and Services</p>
-	 * 
-	 * <p>AUTHOR  		: Samuel Asher Rivello (code [at] RivelloMultimediaConsulting [dot] com)</p>
-	 * <p>COMPANY 		: Rivello Multimedia Consulting</p>
-	 * <p>CREATION DATE 	: Apr 05, 2010</p>
-	 * 
-	 * @example Here is a code example.  
-	 * 
-	 * <listing version="3.0" >
-	 * 	//Code example goes here.
-	 * </listing>
 	 *
 	 */
 	public class HappyBirthdayContext extends SignalContext
@@ -141,6 +132,7 @@ package com.rmc.projects.happybirthday
 			//b. RESPONSES
 			injector.mapSingleton	(ViewNavigatorPushViewSignal);	
 			injector.mapSingleton	(ViewNavigatorPopViewSignal);	
+			injector.mapSingleton	(StageOrientationChangeSignal);	
 			
 		}
 		
@@ -157,6 +149,7 @@ package com.rmc.projects.happybirthday
 			mediatorMap.mapView		(Main, 		 	ApplicationMediator);
 			mediatorMap.mapView		(MainViewUI, 	MainViewUIMediator); //optional 3rd parameter, [MainViewUI]);
 			mediatorMap.mapView		(SongViewUI, 	SongViewUIMediator);  //optional 3rd parameter, [SongViewUI]);
+			mediatorMap.mapView		(WebViewUI, 	WebViewUIMediator);  //optional 3rd parameter, [SongViewUI]);
 			
 		}
 		

@@ -5,6 +5,8 @@
 	
 	destructionPolicy="auto"
 	initialize="_onInitialize(event)"
+	
+	skinClass="skins.ViewSkin"
 	>
 	
 	<fx:Script>
@@ -92,8 +94,8 @@
 			protected function createdByUS_textarea_creationComplete(event:FlexEvent):void
 			{
 				
-				(createdByUS_textarea.textDisplay as StyleableTextField).htmlText = phrasesVO.createdByUs_str;
 				(createdByUS_textarea.textDisplay as StyleableTextField).multiline = true;
+				(createdByUS_textarea.textDisplay as StyleableTextField).htmlText = phrasesVO.createdByUs_str;
 				
 			}
 			
@@ -102,6 +104,18 @@
 	
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
+		
+		<!--
+		An optional dropDown skin part defines the Callout generated after
+		(1) pressing a CalloutButton or (2) calling calloutButton.openDropDown().
+		Button skins don't contain a dropDown skin part by default. In this case,
+		CalloutButton creates a default Callout.
+		-->
+		<fx:Component id="dropDown">
+			<s:Callout skinClass="com.rmc.projects.happybirthday.skins.BoxyCalloutSkin"
+					   backgroundColor="0x999999"
+					   contentBackgroundAlpha="0"/>
+		</fx:Component>
 	</fx:Declarations>
 	
 	<!-- Layout -->
@@ -123,7 +137,6 @@
 		<s:CalloutButton 
 			id		= "information_button" 
 			icon    = "@Embed('../assets_compiletime/fla/HappyBirthday_Assets_v1.swf#InformationIcon')"
-			
 			>
 			<s:calloutContent >
 				<s:VGroup width="100%"
@@ -134,7 +147,9 @@
 						  >
 					
 					
+					<!-- SET HEIGHT TO 110, if not set or if set as 100% you must show the callout panel 2 times before you see the second line of this text. BUG! -->
 					<s:TextArea width="100%" 
+								height="110"
 								id="createdByUS_textarea" 
 								creationComplete="createdByUS_textarea_creationComplete(event)"
 								textAlign="center" borderVisible="false" selectable="false" editable="false"
@@ -172,6 +187,7 @@
 				</s:VGroup>
 			</s:calloutContent>
 		</s:CalloutButton>
+		<s:Button label = "Wiki" id="webView_button" visible="false" />
 	</s:actionContent>
 	
 </s:View>

@@ -16,7 +16,7 @@
 
 	<!-- A universally unique application identifier. Must be unique across all AIR applications.
 	Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
-	<id>com.rmc.projects.musicalmemory</id>
+	<id>com.rmc.projects.happybirthday</id>
 
 	<!-- Used as the filename for the application. Required. -->
 	<filename>Happy Birthday</filename>
@@ -105,7 +105,7 @@
         <!-- <renderMode></renderMode> -->
 
 		<!-- Whether or not to pan when a soft keyboard is raised or lowered (either "pan" or "none").  Optional.  Defaults "pan." -->
-		<autoOrients>true</autoOrients>
+		<autoOrients>false</autoOrients>
 		<aspectRatio>portrait</aspectRatio>
         <fullScreen>false</fullScreen>
         <visible>true</visible>
@@ -144,10 +144,6 @@
 	<!-- Whether the application handles the update when a user double-clicks an update version
 	of the AIR file (true), or the default AIR application installer handles the update (false).
 	Optional. Default false.
-	
-	Android, iOS
-114x114
-
 	
 	 -->
 	<!-- <customUpdateUI></customUpdateUI> -->
@@ -275,4 +271,7 @@
 		]]></InfoAdditions>
         <requestedDisplayResolution>high</requestedDisplayResolution>
     </iPhone>
+    <extensions>
+        <extensionID>com.hdi.nativeExtensions.NativeAds</extensionID>
+    </extensions>
 </application>

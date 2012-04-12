@@ -9,7 +9,7 @@
 		<language title = "Dutch" 					languageCode ="DU" />
 		<language title = "Faroese" 				languageCode ="FE" />
 		<language title = "Farsi" 					languageCode ="FA" />
-		<language title = "Finish" 					languageCode ="FI" />
+		<language title = "Finnish" 				languageCode ="FI" />
 		<language title = "French" 					languageCode ="FR" />
 		<language title = "German" 					languageCode ="DE" />
 		<language title = "Greek" 					languageCode ="GR" />
@@ -42,6 +42,7 @@
 	
 	
 	<song languageCode = "EN">
+		<wikipediaURL>http://m.wikipedia.org/wiki/English_language</wikipediaURL>
 		<title>
 		<![CDATA[Happy Birthday]]>
 		</title>
@@ -55,6 +56,7 @@ Happy birthday to you.
 	</song>
 	
 	<song languageCode = "IN">
+		<wikipediaURL>http://m.wikipedia.org/wiki/Indonesian_language</wikipediaURL>
 		<title>
 		<![CDATA[Slamat Ulang Tahun]]>
 		</title>
@@ -68,6 +70,7 @@ Slamat ulang tahun.
 	</song>
 	
 	<song languageCode = "FI">
+		<wikipediaURL>http://m.wikipedia.org/wiki/Finnish_language</wikipediaURL>
 		<title>
 		<![CDATA[Paljon Onnea Vaan]]>
 		</title>
@@ -81,6 +84,7 @@ Paljon onnea vaan.
 	</song>
 	
 	<song languageCode = "DU">
+		<wikipediaURL>http://m.wikipedia.org/wiki/Dutch_language</wikipediaURL>
 		<title>
 		<![CDATA[Lang zal {gender:values(hij,ze)} leven]]>
 		</title>
@@ -95,6 +99,7 @@ Hiep hiep hiep hoera.
 	</song>
 
 	<song languageCode = "KO">
+		<wikipediaURL>http://m.wikipedia.org/wiki/Korean_language</wikipediaURL>
 		<title>
 		<![CDATA[Sengil Chukhahamnida]]>
 		</title>
@@ -108,6 +113,7 @@ Sengil chukhahamnida.
 	</song>
 	
 	<song languageCode = "HE">
+		<wikipediaURL>http://m.wikipedia.org/wiki/Hebrew_language</wikipediaURL>
 		<title>
 		<![CDATA[Hayom Yom Huledet]]>
 		</title>
@@ -124,6 +130,7 @@ Hayom yom huledet l'{name}.
 	</song>
 	
 	<song languageCode = "FE">
+		<wikipediaURL>.m.wikipedia.org/wiki/Faroese_language</wikipediaURL>
 		<title>
 		<![CDATA[Tillukku Til Tín]]>
 		</title>
@@ -137,6 +144,7 @@ Tillukku til tín.
 	</song>
 	
 	<song languageCode = "JA">
+		<wikipediaURL>http://m.wikipedia.org/wiki/Japanese_language</wikipediaURL>
 		<title>
 		<![CDATA[Happii Baasudei Tu Yu.]]>
 		</title>
@@ -151,6 +159,7 @@ Happii baasudei tu yu.
 	
 	
 	<song languageCode = "FA">
+		<wikipediaURL>http://m.wikipedia.org/wiki/Farsi</wikipediaURL>
 		<title>
 		<![CDATA[Mubarak, Solgirít Mubarak!]]>
 		</title>
@@ -164,6 +173,7 @@ Mubarak, solgirít mubarak!
 	</song>
 
 	<song languageCode = "RU">
+		<wikipediaURL>http://m.wikipedia.org/wiki/Russian_language</wikipediaURL>
 		<title>
 		<![CDATA[День Рожденья]]>
 		</title>
@@ -179,6 +189,7 @@ Mubarak, solgirít mubarak!
 
 	
 	<song languageCode = "NO">
+		<wikipediaURL>http://m.wikipedia.org/wiki/Norwegian_Language</wikipediaURL>
 		<title>
 		<![CDATA[Gratulerer Med Da'n]]>
 		</title>
@@ -192,6 +203,7 @@ Gratulerer med da'n.
 	</song>
 	
 	<song languageCode = "GR">
+		<wikipediaURL>http://m.wikipedia.org/wiki/Greek_language</wikipediaURL>
 		<title>
 		<![CDATA[Na Zisis]]>
 		</title>
@@ -206,13 +218,14 @@ Kai oli na lene na {gender:values(enas,mia)} sofos!
 	
 	
 	<song languageCode = "TU">
+		<wikipediaURL>http://m.wikipedia.org/wiki/Turkish_language</wikipediaURL>
 		<title>
 		<![CDATA[Lyi Ki Doğdun]]>
 		</title>
 		<lyrics>
 <![CDATA[Lyi ki doğdun {name},
 Lyi ki doğdun {name},
-Lyi ki doğdun, iyi ki doğdun,
+Lyi ki doğdun, lyi ki doğdun,
 Mutlu yıllar sana.
 ]]>
 		</lyrics>
@@ -221,6 +234,7 @@ Mutlu yıllar sana.
 	
 	
 	<song languageCode = "SL">
+		<wikipediaURL>http://m.wikipedia.org/wiki/Slovenian_language</wikipediaURL>
 		<title>
 		<![CDATA[Vse Najboljše Za Te]]>
 		</title>
@@ -236,6 +250,7 @@ Vse najboljše za te!
 
 	
 	<song languageCode = "PO">
+		<wikipediaURL>http://m.wikipedia.org/wiki/Polish_language</wikipediaURL>
 		<title>
 		<![CDATA[Sto Lat]]>
 		</title>
@@ -255,6 +270,7 @@ Niech zyje nam!
 	
 	
 	<song languageCode = "SW">
+		<wikipediaURL>http://m.wikipedia.org/wiki/Swedish_language</wikipediaURL>
 		<title>
 		<![CDATA[Ja, Må Du Leva]]>
 		</title>
@@ -270,6 +286,7 @@ Ja, må du {gender:values(han,hon)} leva uti hundrade år.
 	</song>
 	
 	<song languageCode = "AR">
+		<wikipediaURL>http://m.wikipedia.org/wiki/Arabic_language</wikipediaURL>
 		<title>
 		<![CDATA[Sana Hilwa Alayk]]>
 		</title>
@@ -283,6 +300,7 @@ Sana hilwa, ya gamiil.
 	</song>
 	
 	<song languageCode = "TA">
+		<wikipediaURL>http://m.wikipedia.org/wiki/Tagalog_language</wikipediaURL>
 		<title>
 		<![CDATA[Maligayang Bati]]>
 		</title>
@@ -296,6 +314,7 @@ Maligayang bati.
 	</song>
 	
 	<song languageCode = "RO">
+		<wikipediaURL>http://m.wikipedia.org/wiki/Romanian_language</wikipediaURL>
 		<title>
 		<![CDATA[Mulţi Ani Trăiască]]>
 		</title>
@@ -311,6 +330,7 @@ La mulţi ani!
 	</song>
 	
 	<song languageCode = "IR">
+		<wikipediaURL>http://m.wikipedia.org/wiki/Irish_language</wikipediaURL>
 		<title>
 		<![CDATA[Shona Breathla' Dhuit]]>
 		</title>
@@ -324,19 +344,21 @@ Shona breathla' dhuit.
 	</song>
 	
 		
-		<song languageCode = "ES">
-			<title><![CDATA[Cumpleaños Feliz]]></title>
-			<lyrics>
+	<song languageCode = "ES">
+		<wikipediaURL>http://m.wikipedia.org/wiki/Spanish_language</wikipediaURL>
+		<title><![CDATA[Cumpleaños Feliz]]></title>
+		<lyrics>
 <![CDATA[Que los cumplas feliz,
 Que los cumplas feliz,
 Que los cumplas {name},
 Que los cumplas feliz.
 ]]>
-			</lyrics>
-		</song>
+		</lyrics>
+	</song>
 		
-		<song languageCode = "IT">
-			<title><![CDATA[Tanti Auguri]]></title>
+	<song languageCode = "IT">
+		<wikipediaURL>http://m.wikipedia.org/wiki/Italian_language</wikipediaURL>
+		<title><![CDATA[Tanti Auguri]]></title>
 			<lyrics>
 <![CDATA[Tanti auguri a te,
 Tanti auguri a te,
@@ -346,7 +368,8 @@ Tanti auguri a te.
 			</lyrics>
 		</song>
 		
-		<song languageCode = "FR">
+	<song languageCode = "FR">
+		<wikipediaURL>http://m.wikipedia.org/wiki/French_language</wikipediaURL>
 			<title><![CDATA[Joyeax Anniversaire]]></title>
 			<lyrics>
 <![CDATA[Joyeux Anniversaire,
@@ -355,10 +378,11 @@ Joyeux Anniversaire {gender:values(cher,chère)} {name},
 Joyeux Anniversaire!
 ]]>
 			</lyrics>
-		</song>
+	</song>
 		
 		
-		<song languageCode = "SE">
+	<song languageCode = "SE">
+		<wikipediaURL>http://m.wikipedia.org/wiki/Serbian_language</wikipediaURL>
 			<title><![CDATA[Danas Nam Je Divan Dan]]></title>
 			<lyrics>
 <![CDATA[Danas nam je divan dan, divan dan, divan dan,
@@ -371,7 +395,8 @@ I srećan nam {gender:values(bio,bila)}!
 			</lyrics>
 		</song>
 		
-		<song languageCode = "CA">
+	<song languageCode = "CA">
+		<wikipediaURL>http://m.wikipedia.org/wiki/Catalan_language</wikipediaURL>
 			<title><![CDATA[Moltes Felicitats]]></title>
 			<lyrics>
 <![CDATA[Moltes felicitats,
@@ -385,7 +410,8 @@ Moltes felicitats!
 
 
 
-		<song languageCode = "DE">
+	<song languageCode = "DE">
+		<wikipediaURL>http://m.wikipedia.org/wiki/German_language</wikipediaURL>
 			<title><![CDATA[Zum Geburtstag Viel Glück!]]></title>
 			<lyrics>
 <![CDATA[Zum geburtstag viel glück!
@@ -396,7 +422,8 @@ Zum geburtstag viel glück!
 			</lyrics>
 		</song>	
 
-		<song languageCode = "CZ">
+	<song languageCode = "CZ">
+		<wikipediaURL>http://m.wikipedia.org/wiki/Czech_language</wikipediaURL>
 			<title><![CDATA[Štěstí, zdraví]]></title>
 			<lyrics>
 <![CDATA[Štěstí, zdraví, štěstí zdraví, hlavně to zdraví!
@@ -411,13 +438,14 @@ let, do sta let, ať žije nám!
 			</lyrics>
 		</song>	
 
-		<song languageCode = "PT">
-			<title><![CDATA[Parabéns A Você]]></title>
+	<song languageCode = "PT">
+			<wikipediaURL>http://m.wikipedia.org/wiki/Portuguese_language</wikipediaURL>
+			<title><![CDATA[Parabéns pra Você]]></title>
 			<lyrics>
-<![CDATA[Parabéns a você,
+<![CDATA[Parabéns pra você,
 Nesta data querida,
 Muitas felicidades,
-Muitos anos de vida. 
+Muitos anos de vida!
 ]]>
 			</lyrics>
 		</song>	

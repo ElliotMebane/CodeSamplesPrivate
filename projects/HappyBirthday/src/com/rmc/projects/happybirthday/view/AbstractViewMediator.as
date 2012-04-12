@@ -24,6 +24,10 @@
 //Marks the right margin of code *******************************************************************
 package com.rmc.projects.happybirthday.view
 {
+	
+	//--------------------------------------
+	//  Imports
+	//--------------------------------------
 	import com.rmc.projects.happybirthday.controller.signals.LoadPhrasesModelSignal;
 	import com.rmc.projects.happybirthday.model.PhrasesModel;
 	import com.rmc.projects.happybirthday.model.events.PhrasesModelEvent;
@@ -33,10 +37,6 @@ package com.rmc.projects.happybirthday.view
 	import org.robotlegs.mvcs.Mediator;
 	
 	import spark.events.ViewNavigatorEvent;
-	
-	//--------------------------------------
-	//  Imports
-	//--------------------------------------
 	
 	// --------------------------------------
 	// Metadata

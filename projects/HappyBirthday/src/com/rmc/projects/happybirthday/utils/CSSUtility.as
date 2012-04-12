@@ -123,10 +123,10 @@ package com.rmc.projects.happybirthday.utils
 			
 			switch (DensityUtil.getRuntimeDPI()) {
 				
-				//IPAD
+				//DROID 2
 				case DPIClassification.DPI_240:
-					songNameFontSize_uint = 100;
-					songBodyFontSize_uint = 80;
+					songNameFontSize_uint = 50;
+					songBodyFontSize_uint = 30;
 					break;
 				//SMALL SCREENS (3GS) and IPHONE4
 				case DPIClassification.DPI_320:

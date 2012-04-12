@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<views:AbstractView
+	xmlns:views="com.rmc.projects.happybirthday.view.components.views.*" 
+	xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	
+	creationComplete="_onCreationComplete(event)" 
+	xmlns:components="com.rmc.projects.happybirthday.view.components.*"
+	xmlns:ads="com.rmc.projects.happybirthday.view.components.ads.*" 
+	xmlns:components1="com.rmc.projects.nativeadscontainer.components.*"
+	
+	viewActivate="_onViewActivate(event)" 
+	viewDeactivate="_onDeactivate(event)" 
+	xmlns:controls="com.flexcapacitor.controls.*" xmlns:local="*"
+	>
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			
+			import org.osflash.signals.natives.NativeSignal;
+			
+			import spark.events.ViewNavigatorEvent;
+			
+			//--------------------------------------
+			//  Properties
+			//--------------------------------------
+			//PUBLIC GETTER/SETTERS
+			
+			//PUBLIC
+			/**
+			 * Signal: When 'Clear' is Clicked
+			 * 
+			 */
+			public var backButtonClick : NativeSignal;
+			
+		
+			//PUBLIC CONST
+			
+			
+			//PRIVATE
+			
+			// --------------------------------------
+			// Methods
+			// --------------------------------------
+			// PUBLIC
+			
+			// PRIVATE
+			
+			// --------------------------------------
+			// Event Handlers
+			// --------------------------------------
+			
+			/**
+			 * Handles the aEvent: <code>FlexEvent.CREATION_COMPLETE</code>.
+			 * 
+			 * @param aEvent <code>FlexEvent</code> The incoming aEvent payload.
+			 *  
+			 * @return void
+			 * 
+			 */
+			private function _onCreationComplete(aEvent : FlexEvent) : void
+			{
+				backButtonClick = new NativeSignal 	(back_button, 	MouseEvent.CLICK, MouseEvent);
+				
+				var position_point : Point = new Point (borderContainer.x, borderContainer.y);
+				position_point = this.localToGlobal(position_point);
+				
+				var viewPort_rectangle : Rectangle = new Rectangle(
+					position_point.x,
+					position_point.y,
+					borderContainer.width - position_point.x*2,
+					borderContainer.height - position_point.y - 100);
+				
+				if (StageWebView.isSupported) {
+					
+				} else {
+					
+					//urlAddress.text = "StageWebView not supported" ; 
+					
+				}
+				
+			}
+			
+			/**
+			 * Handles the aEvent: <code>ViewNavigatorEvent.VIEW_ACTIVATE</code>.
+			 * 
+			 * @param aEvent <code>ViewNavigatorEvent</code> The incoming aEvent payload.
+			 *  
+			 * @return void
+			 * 
+			 */
+			private function _onViewActivate(aEvent : ViewNavigatorEvent) : void
+			{
+				if (StageWebView.isSupported) {
+					//MAKE IT VISIBLE
+					webView.visible = true;
+				}
+			}
+			
+			
+			/**
+			 * Handles the aEvent: <code>ViewNavigatorEvent.VIEW_DEACTIVATE</code>.
+			 * 
+			 * @param aEvent <code>ViewNavigatorEvent</code> The incoming aEvent payload.
+			 *  
+			 * @return void
+			 * 
+			 */
+			private function _onDeactivate(aEvent : ViewNavigatorEvent) : void
+			{
+				if (StageWebView.isSupported) {
+					//MAKE IT VISIBLE
+					//webView.takeSnapshot();
+					//webView.
+					if (StageWebView.isSupported == true) {
+						//webView.snapshotMode = true;
+						//webView.takeSnapshot();
+						webView.visible = false ; //later try to use a snapshot so the page will 'slide' away not flicker off
+					}
+				}
+			}
+			
+			protected function _onWebViewPageLoadComplete(event:Event):void
+			{
+				if (StageWebView.isSupported == true) {
+					
+					//CAN WE SCROLL DOWN 30 PIXELS BELOW WIKIPEDIA'S SEARCH BOX?
+					//webView.webView.
+					//webView.snapshotMode = true
+						
+				}
+				
+			}
+			
+			override protected function _onInitialize(aEvent:FlexEvent):void
+			{
+				super._onInitialize(aEvent);
+				
+				//HACK
+				//MainViewUI and SongViewUI are children of AbstractViewUI. THe abstract declares buttons which I'm unsure how to declare
+				//ONLY in the MainViewUI so I do it in the abstract and then make them invisible here.
+				//No problems, works fine as is.
+				information_button.visible = false;
+				information_button.width = 0;
+				
+				webView_button.visible = false;
+				webView_button.width = 0;
+			}
+			
+
+			
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<!-- Place any UI components here. -->	
+	<s:Group width="100%" height="100%" >
+		<s:layout>
+			<s:VerticalLayout
+				paddingBottom="10"
+				paddingLeft="10"
+				paddingRight="10"
+				paddingTop="10"
+				/>
+		</s:layout>
+		
+		<s:BorderContainer width="100%" height="100%" id="borderContainer" backgroundColor="0xFFFFFF" cornerRadius="0">
+			<s:layout>
+				<s:VerticalLayout
+					paddingBottom="0"
+					paddingLeft="0"
+					paddingRight="0"
+					paddingTop="0"
+					/>
+			</s:layout>
+			<controls:WebView id="webView" width="100%" height="100%" visible="false" complete="_onWebViewPageLoadComplete(event)" />
+			
+		</s:BorderContainer>
+	</s:Group>
+	<!-- 
+	-->	
+	
+	<!-- 
+	
+	Dynamically Insert iAD/adMob Advertisement Within an Existing Layout. 
+	The 'live' sizing is fed to the API at startup, and again upon rotation, resizing, etc..
+	
+	1) unitID = "{insert_your_admob_code_here}" or externally as unitID = "{Passwords.AD_MOB_ID}" 
+	
+	2) Change all sizing parameters to meet you needs
+	
+	-->	
+	<local:NativeAdsContainerIPadBottom />
+	
+</views:AbstractView>

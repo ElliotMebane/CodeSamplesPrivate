@@ -201,7 +201,7 @@ package com.rmc.projects.happybirthday.model
 			var song_xmllist : XMLList = _rawSongs_xmllist.song.(@languageCode== _selectedLanguage.languageCode) ;		
 			
 			//	USE SETTER
-			currentSong =  new SongVO (song_xmllist.title.toString(), song_xmllist.lyrics.toString(), song_xmllist.@languageCode);
+			currentSong =  new SongVO (song_xmllist.title.toString(), song_xmllist.lyrics.toString(), song_xmllist.@languageCode, song_xmllist.wikipediaURL.toString());
 			
 		}
 

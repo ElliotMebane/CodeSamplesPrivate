@@ -31,6 +31,7 @@ package com.rmc.projects.happybirthday.view
 	import com.rmc.projects.happybirthday.controller.signals.LoadSongSignal;
 	import com.rmc.projects.happybirthday.controller.signals.SelectedLanguageChangeSignal;
 	import com.rmc.projects.happybirthday.controller.signals.SocialButtonClickedSignal;
+	import com.rmc.projects.happybirthday.controller.signals.flexmobile.StageOrientationChangeSignal;
 	import com.rmc.projects.happybirthday.model.HappyBirthdayModel;
 	import com.rmc.projects.happybirthday.model.events.PhrasesModelEvent;
 	import com.rmc.projects.happybirthday.model.vo.GuestVO;
@@ -38,8 +39,11 @@ package com.rmc.projects.happybirthday.view
 	import com.rmc.projects.happybirthday.utils.DensityUtil;
 	import com.rmc.projects.happybirthday.view.components.views.MainViewUI;
 	
+	import flash.display.Stage;
+	import flash.display.StageOrientation;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
+	import flash.events.StageOrientationEvent;
 	import flash.system.Capabilities;
 	
 	import mx.collections.ArrayList;
@@ -104,6 +108,13 @@ package com.rmc.projects.happybirthday.view
 		[Inject]
 		public var selectedLanguageChangeSignal : SelectedLanguageChangeSignal;
 		
+		/**
+		 * Signal: Marks a request to change the stage rotation
+		 * 
+		 */	
+		[Inject]
+		public var stageOrientationChangeSignal : StageOrientationChangeSignal;
+		
 		
 		/**
 		 * Reference: <code>PhrasesModel</code>
@@ -146,24 +157,15 @@ package com.rmc.projects.happybirthday.view
 			mainViewUI.guestNameTextInputChange.add  			(_onGuestNameTextInputChange);
 			mainViewUI.guestGenderRadioButtonChange.add			(_onGuestGenderRadioButtonChange);
 			mainViewUI.socialButtonClicked.add					(_onSocialButtonClicked);
+			
 			//
+			trace ("stageOrientationChangeSignal: " + stageOrientationChangeSignal);
+			stageOrientationChangeSignal.add					(_onStageOrientationChange);
 			
 			//	Context Listeners
 			happyBirthdayModel.languagesFullListChangedSignal.add   (_onLanguageFullListChanged);
 			happyBirthdayModel.selectedLanguageChangedSignal.add 	(_onSelectedLanguageChanged);
 			happyBirthdayModel.guestChangedSignal.add 				(_onGuestChanged);
-			
-			//FOR SMALL SCREENS (itouch/iphone 3gs) EXPERIMENT WITH A SMALLER SPIN LIST SO THE ADS STILL FIT BELOW
-			if (DensityUtil.getRuntimeDPI() == DPIClassification.DPI_160) {
-				
-				//NOT SURE WHY, BUT IPAD IS COMING AS DPI 132 BUT DPICLASSIF OF 160
-				if (Capabilities.screenDPI == 132) {
-					//nothing for ipad
-				} else {
-					//NORMAL, SMALL
-					mainViewUI.languageFullList_spinnerlist.height = 250;
-				}
-			}
 			
 			//	UPDATE UI
 			_onLanguageFullListChanged();
@@ -196,6 +198,11 @@ package com.rmc.projects.happybirthday.view
 		}
 		
 		//VIEW
+		
+		
+		
+		
+		
 		/**
 		 * Handles the aEvent: <code>IndexChangedEvent.CHANGE</code>.
 		 * 
@@ -288,6 +295,69 @@ package com.rmc.projects.happybirthday.view
 		}
 		
 		//CONTEXT
+		/**
+		 * Handles the Signal: <code>StageOrientationEvent</code>.
+		 * 
+		 * @param aEvent : StageOrientationEvent
+		 *  
+		 * @return void
+		 * 
+		 */
+		private function _onStageOrientationChange (aEvent : StageOrientationEvent):void
+		{
+			
+			return;
+			
+			
+			
+			var nextSpinnerListHeight_uint : uint;
+			
+			if (mainViewUI.stage.orientation == StageOrientation.ROTATED_LEFT || mainViewUI.stage.orientation == StageOrientation.ROTATED_RIGHT ) {
+				
+				//
+				//		LANDSCAPE
+				//
+				
+				//FOR SMALL SCREENS (itouch/iphone 3gs) EXPERIMENT WITH A SMALLER SPIN LIST SO THE ADS STILL FIT BELOW
+				if (DensityUtil.getRuntimeDPI() == DPIClassification.DPI_160) {
+					
+					//NOT SURE WHY, BUT IPAD IS COMING AS DPI 132 BUT DPICLASSIF OF 160
+					if (Capabilities.screenDPI == 132) {
+						//nothing for ipad
+						nextSpinnerListHeight_uint = 1100;
+					} else {
+						//NORMAL, SMALL
+						nextSpinnerListHeight_uint = 275;
+					}
+				}
+			} else {
+				//
+				//		PORTRAIT
+				//
+				//FOR SMALL SCREENS (itouch/iphone 3gs) EXPERIMENT WITH A SMALLER SPIN LIST SO THE ADS STILL FIT BELOW
+				if (DensityUtil.getRuntimeDPI() == DPIClassification.DPI_160) {
+					
+					//NOT SURE WHY, BUT IPAD IS COMING AS DPI 132 BUT DPICLASSIF OF 160
+					if (Capabilities.screenDPI == 132) {
+						//nothing for ipad
+						nextSpinnerListHeight_uint = 1600;
+					} else {
+						//NORMAL, SMALL
+						nextSpinnerListHeight_uint = 600;
+					}
+				}
+			}
+			
+			trace ("nextSpinnerListHeight_uint: " + nextSpinnerListHeight_uint);
+			if (nextSpinnerListHeight_uint != 0 && mainViewUI.languageFullList_spinnerlist.height != nextSpinnerListHeight_uint) {
+			
+					mainViewUI.languageFullList_spinnerlist.height = nextSpinnerListHeight_uint;
+				
+			}
+			
+
+		}
+		
 		/**
 		 * Handles the Signal: <code>LanguageFullListChangedSignal</code>.
 		 * 

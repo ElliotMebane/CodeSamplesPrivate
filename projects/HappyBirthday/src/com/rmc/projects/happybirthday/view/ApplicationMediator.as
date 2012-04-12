@@ -27,23 +27,21 @@ package com.rmc.projects.happybirthday.view
 	//--------------------------------------
 	//  Imports
 	//--------------------------------------
-	import com.rmc.projects.happybirthday.controller.signals.ClearSelectedLanguageSignal;
-	import com.rmc.projects.happybirthday.controller.signals.LoadSongSignal;
-	import com.rmc.projects.happybirthday.controller.signals.ViewNavigatorPopViewSignal;
-	import com.rmc.projects.happybirthday.controller.signals.ViewNavigatorPushViewSignal;
+	import com.rmc.projects.happybirthday.controller.signals.flexmobile.StageOrientationChangeSignal;
+	import com.rmc.projects.happybirthday.controller.signals.flexmobile.ViewNavigatorPopViewSignal;
+	import com.rmc.projects.happybirthday.controller.signals.flexmobile.ViewNavigatorPushViewSignal;
 	import com.rmc.projects.happybirthday.model.PhrasesModel;
 	import com.rmc.projects.happybirthday.model.events.PhrasesModelEvent;
 	import com.rmc.projects.happybirthday.model.events.ViewNavigatorEvent;
 	import com.rmc.projects.happybirthday.model.vo.PhrasesVO;
-	import com.rmc.projects.happybirthday.view.components.views.MainViewUI;
 	
-	import flash.events.MouseEvent;
+	import flash.events.Event;
+	import flash.events.StageOrientationEvent;
 	
+	import org.osflash.signals.natives.NativeSignal;
 	import org.robotlegs.mvcs.Mediator;
 	
-	import spark.components.View;
 	import spark.components.ViewNavigator;
-	import spark.components.supportClasses.StyleableTextField;
 	
 	// --------------------------------------
 	// Metadata
@@ -55,16 +53,6 @@ package com.rmc.projects.happybirthday.view
 	// --------------------------------------
 	/**
 	 * <p>The <code>Mediator</code> managing the I/O to the UI: MainUI</p>
-	 * 
-	 * <p>AUTHOR  		: Samuel Asher Rivello (code [at] RivelloMultimediaConsulting [dot] com)</p>
-	 * <p>COMPANY 		: Rivello Multimedia Consulting</p>
-	 * <p>CREATION DATE 	: Apr 05, 2010</p>
-	 * 
-	 * @example Here is a code example.  
-	 * 
-	 * <listing version="3.0" >
-	 * 	//Code example goes here.
-	 * </listing>
 	 *
 	 */
 	public class ApplicationMediator extends Mediator
@@ -93,6 +81,13 @@ package com.rmc.projects.happybirthday.view
 		 */	
 		[Inject]
 		public var viewNavigatorPopViewSignal : ViewNavigatorPopViewSignal;
+		
+		/**
+		 * Signal: Marks a request on <code>ViewNavigator</code>
+		 * 
+		 */	
+		[Inject]
+		public var stageOrientationChangeSignal : StageOrientationChangeSignal;
 		
 		/**
 		 * Reference: <code>PhrasesModel</code>
@@ -126,15 +121,47 @@ package com.rmc.projects.happybirthday.view
 		override public function onRegister():void
 		{
 			//	UI
-
+			//	I WASN'T SURE WHEN 'STAGE' IS AVAILABLE ON THE UI SO I JUST DECLARE THIS HERE
 			//	Context Listeners
 			viewNavigatorPushViewSignal.add 			(_onViewNavigatorPushViewSignal);
 			viewNavigatorPopViewSignal.add 				(_onViewNavigatorPopViewSignal);
 			phrasesModel.changedPhrasesModelSignal.add 	(_onPhrasesModelChanged);
-	
+			
+			//
+		
 		}
 		
+		//--------------------------------------
+		//  Events
+		//--------------------------------------
 		//VIEW
+		/**
+		 * Handles the Event: <code>StageOrientationEvent.ORIENTATON_CHANGE</code>.
+		 * 
+		 * @param aEvent <code>StageOrientationEvent</code> The incoming aEvent payload.
+		 *  
+		 * @return void
+		 * 
+		 */
+		private function _onAddedToStageSignal (aEvent : Event) : void
+		{
+			application.stageOrientationChangeNativeSignal.add (_onStageOrientationChange);
+			
+		}
+		/**
+		 * Handles the Event: <code>StageOrientationEvent.ORIENTATON_CHANGE</code>.
+		 * 
+		 * @param aEvent <code>StageOrientationEvent</code> The incoming aEvent payload.
+		 *  
+		 * @return void
+		 * 
+		 */
+		private function _onStageOrientationChange(aEvent:StageOrientationEvent):void
+		{
+			stageOrientationChangeSignal.dispatch(aEvent);
+			
+		}
+		
 		
 		//CONTEXT
 		
@@ -151,7 +178,7 @@ package com.rmc.projects.happybirthday.view
 			
 			//	CHANGE VIEW
 			(application.navigator as ViewNavigator).pushView(aEvent.viewClass, null, null, aEvent.viewTransition);
-
+			
 		}
 		
 		
@@ -168,7 +195,7 @@ package com.rmc.projects.happybirthday.view
 			
 			//	CHANGE VIEW
 			application.navigator.popView(aEvent.viewTransition);
-
+			
 		}
 		
 		/**
@@ -183,7 +210,7 @@ package com.rmc.projects.happybirthday.view
 		{
 			
 			var phrasesVO : PhrasesVO = aEvent.phrasesModel.phrasesVO;
-
+			
 		}
 		
 	}

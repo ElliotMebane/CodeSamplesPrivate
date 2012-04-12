@@ -29,7 +29,7 @@ package com.rmc.projects.happybirthday.controller.commands
 	//  Imports
 	//--------------------------------------
 	import com.rmc.projects.happybirthday.AssetManager;
-	import com.rmc.projects.happybirthday.controller.signals.ViewNavigatorPopViewSignal;
+	import com.rmc.projects.happybirthday.controller.signals.flexmobile.ViewNavigatorPopViewSignal;
 	import com.rmc.projects.happybirthday.model.HappyBirthdayModel;
 	import com.rmc.projects.happybirthday.model.PhrasesModel;
 	import com.rmc.projects.happybirthday.model.events.ViewNavigatorEvent;

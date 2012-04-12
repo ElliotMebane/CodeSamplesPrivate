@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<components:NativeAdsContainer
+	xmlns:views="com.rmc.projects.happybirthday.view.components.views.*" 
+	xmlns:components="com.rmc.projects.nativeadscontainer.components.*"
+	xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	
+	width="100%" 	
+	height = "240" 
+	unitID = "{PrivateConfiguration.AD_MOB_ID_NativeAdsContainer_Android}"  
+	
+	addedToStage="_onAddedToStage(event)"
+	
+	
+	>
+	
+	<fx:Script>
+		<![CDATA[
+			import com.hdi.nativeExtensions.NativeAds;
+			import com.hdi.nativeExtensions.NativeAdsEvent;
+			import com.rmc.projects.nativeadscontainer.components.NativeAdsContainer;
+			import com.rmc.projects.nativeadscontainer.managers.NativeAdsManager;
+			
+			private var timer:Timer;
+			
+			
+			//--------------------------------------
+			//  Properties
+			//--------------------------------------
+			//PUBLIC GETTER/SETTERS
+			
+			
+			//PUBLIC
+			
+			//PUBLIC CONST
+			
+			
+			//PRIVATE
+			
+			
+			// --------------------------------------
+			// Methods
+			// --------------------------------------
+			// PUBLIC
+			
+			
+			// PRIVATE
+			
+			// --------------------------------------
+			// Event Handlers
+			// --------------------------------------
+			
+			/**
+			 * Handles the aEvent: <code>Event.ADDED_TO_STAGE</code>.
+			 * 
+			 * @param aEvent <code>Event</code> The incoming aEvent payload.
+			 *  
+			 * @return void
+			 * 
+			 */
+			override protected function _onAddedToStage(aEvent:Event):void
+			{
+				
+				visible = false;
+				
+				super._onAddedToStage(aEvent);
+				
+				NativeAds.dispatcher.addEventListener (NativeAdsEvent.AD_RECEIVED, _onAdReceived);
+				NativeAdsManager.moveCurrentAdTo(20, 910, 800, 800);
+				
+				timer = new Timer (500, 1);
+				timer.addEventListener(TimerEvent.TIMER_COMPLETE, _onTimerComplete);
+			}
+			
+			override protected function _onAdReceived(aEvent:NativeAdsEvent):void
+			{
+				timer.start();
+			}
+			
+			private var isAdShown_boolean : Boolean = false;
+			protected function _onTimerComplete(aEvent:TimerEvent):void
+			{
+				if (!isAdShown_boolean) {
+					isAdShown_boolean = true;
+					NativeAdsManager.moveCurrentAdTo(20, 910, 800, 800);
+				}
+			}
+			
+			
+		]]>
+	</fx:Script>
+	
+	
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<!-- Place any UI components here. -->	
+	
+	
+	
+</components:NativeAdsContainer>

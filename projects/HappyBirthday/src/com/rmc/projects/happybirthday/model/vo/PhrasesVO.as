@@ -37,16 +37,6 @@ package com.rmc.projects.happybirthday.model.vo
 	/**
 	 * <p>Holds the data: For UI display </p>
 	 * 
-	 * <p>AUTHOR  		: Samuel Asher Rivello (code [at] RivelloMultimediaConsulting [dot] com)</p>
-	 * <p>COMPANY 		: Rivello Multimedia Consulting</p>
-	 * <p>CREATION DATE 	: Apr 05, 2010</p>
-	 * 
-	 * @example Here is a code example.  
-	 * 
-	 * <listing version="3.0" >
-	 * 	//Code example goes here.
-	 * </listing>
-	 *
 	 */
 	[Bindable]
 	public class PhrasesVO	

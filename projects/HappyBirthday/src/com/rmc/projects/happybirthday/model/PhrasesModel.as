@@ -39,16 +39,6 @@ package com.rmc.projects.happybirthday.model
 	
 	/**
 	 * <p>Manages all the data: All of the static display phrases of the application</p>
-	 * 
-	 * <p>AUTHOR  		: Samuel Asher Rivello (code [at] RivelloMultimediaConsulting [dot] com)</p>
-	 * <p>COMPANY 		: Rivello Multimedia Consulting</p>
-	 * <p>CREATION DATE 	: Apr 05, 2010</p>
-	 * 
-	 * @example Here is a code example.  
-	 * 
-	 * <listing version="3.0" >
-	 * 	//Code example goes here.
-	 * </listing>
 	 *
 	 */
 	public class PhrasesModel extends Actor

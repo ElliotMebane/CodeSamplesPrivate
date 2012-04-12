@@ -40,16 +40,6 @@ package com.rmc.projects.happybirthday.controller.signals
 	/**
 	 * <p>The <code>ClearMessageModelSignal</code> class marks a request to clear the <code>MessageModel</code>.</p>
 	 * 
-	 * <p>AUTHOR  		: Samuel Asher Rivello (code [at] RivelloMultimediaConsulting [dot] com)</p>
-	 * <p>COMPANY 		: Rivello Multimedia Consulting</p>
-	 * <p>CREATION DATE 	: Apr 05, 2010</p>
-	 * 
-	 * @example Here is a code example.  
-	 * 
-	 * <listing version="3.0" >
-	 * 	//Code example goes here.
-	 * </listing>
-	 *
 	 */
 	public class ClearSelectedLanguageSignal extends Signal
 	{		

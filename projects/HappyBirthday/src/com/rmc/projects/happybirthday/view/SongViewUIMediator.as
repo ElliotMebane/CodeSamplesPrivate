@@ -29,23 +29,20 @@ package com.rmc.projects.happybirthday.view
 	//--------------------------------------
 	import com.rmc.projects.happybirthday.AssetManager;
 	import com.rmc.projects.happybirthday.controller.signals.ClearSelectedLanguageSignal;
-	import com.rmc.projects.happybirthday.controller.signals.LoadPhrasesModelSignal;
+	import com.rmc.projects.happybirthday.controller.signals.flexmobile.ViewNavigatorPushViewSignal;
 	import com.rmc.projects.happybirthday.model.HappyBirthdayModel;
-	import com.rmc.projects.happybirthday.model.PhrasesModel;
 	import com.rmc.projects.happybirthday.model.events.PhrasesModelEvent;
+	import com.rmc.projects.happybirthday.model.events.ViewNavigatorEvent;
 	import com.rmc.projects.happybirthday.model.vo.SongVO;
 	import com.rmc.projects.happybirthday.utils.CSSUtility;
 	import com.rmc.projects.happybirthday.utils.DensityUtil;
 	import com.rmc.projects.happybirthday.utils.SongLyricsFilter;
 	import com.rmc.projects.happybirthday.view.components.views.SongViewUI;
+	import com.rmc.projects.happybirthday.view.components.views.WebViewUI;
 	
 	import flash.events.MouseEvent;
 	import flash.system.Capabilities;
-	import flash.text.StyleSheet;
 	
-	import org.robotlegs.mvcs.Mediator;
-	
-	import spark.components.supportClasses.StyleableStageText;
 	import spark.components.supportClasses.StyleableTextField;
 	
 	// --------------------------------------
@@ -58,16 +55,6 @@ package com.rmc.projects.happybirthday.view
 	// --------------------------------------
 	/**
 	 * <p>The <code>Mediator</code> managing the I/O to the UI: MainUI</p>
-	 * 
-	 * <p>AUTHOR  		: Samuel Asher Rivello (code [at] RivelloMultimediaConsulting [dot] com)</p>
-	 * <p>COMPANY 		: Rivello Multimedia Consulting</p>
-	 * <p>CREATION DATE 	: Apr 05, 2010</p>
-	 * 
-	 * @example Here is a code example.  
-	 * 
-	 * <listing version="3.0" >
-	 * 	//Code example goes here.
-	 * </listing>
 	 *
 	 */
 	public class SongViewUIMediator extends AbstractViewMediator
@@ -89,6 +76,13 @@ package com.rmc.projects.happybirthday.view
 		 */	
 		[Inject]
 		public var clearSelectedLanguageSignal : ClearSelectedLanguageSignal;
+		
+		/**
+		 * Signal: Change the View
+		 * 
+		 */
+		[Inject]
+		public var viewNavigatorPushViewSignal : ViewNavigatorPushViewSignal;
 		
 		/**
 		 * Reference: <code>HappyBirthdayModel</code>
@@ -127,6 +121,7 @@ package com.rmc.projects.happybirthday.view
 			
 			// 	View Listeners
 			songViewUI.backButtonClick.add  (_onHomeButtonClick);
+			songViewUI.webViewButtonClick.add  (_onWebViewButtonClick);
 			
 			//	Context Listeners
 			happyBirthdayModel.currentSongChangedSignal.add (_onCurrentSongChanged);
@@ -171,6 +166,21 @@ package com.rmc.projects.happybirthday.view
 		private function _onHomeButtonClick (aEvent : MouseEvent):void
 		{
 			clearSelectedLanguageSignal.dispatch();
+			
+		}
+		/**
+		 * Handles the aEvent: <code>MouseEvent.CLICK</code>.
+		 * 
+		 * @param aEvent <code>MouseEvent</code> The incoming aEvent payload.
+		 *  
+		 * @return void
+		 * 
+		 */
+		private function _onWebViewButtonClick (aEvent : MouseEvent):void
+		{
+			
+			//	CHANGE VIEW
+			viewNavigatorPushViewSignal.dispatch(new ViewNavigatorEvent (ViewNavigatorEvent.POP_VIEW, WebViewUI, AssetManager.getViewTransition(ViewNavigatorEvent.PUSH_VIEW) ) );
 			
 		}
 		
@@ -233,6 +243,34 @@ package com.rmc.projects.happybirthday.view
 				message_str += "<BR>";
 				message_str += "<BR>";
 				message_str +=  CSSUtility.WrapWithSpan( lyrics_str, CSSUtility.SONG_BODY);
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
+				message_str += "<BR>";
 				message_str += "<BR>";
 				message_str += "<BR>";
 				message_str += "<BR>";

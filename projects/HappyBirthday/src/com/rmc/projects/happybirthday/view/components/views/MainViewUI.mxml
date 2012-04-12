@@ -10,17 +10,23 @@
 	title="{phrasesVO.mainViewTitle_str}"
 	creationComplete="_onCreationComplete(event)"
 	
+	viewActivate="onViewActivate(event)"
+	viewDeactivate="onViewDeactivate(event)" xmlns:components1="com.rmc.projects.nativeadscontainer.components.*" xmlns:local="*" 
+	
 	>
 	
 	<fx:Script>
 		<![CDATA[
+			import com.hdi.nativeExtensions.NativeAds;
+			import com.hdi.nativeExtensions.NativeAdsEvent;
+			
 			import mx.events.FlexEvent;
 			import mx.events.IndexChangedEvent;
 			
 			import org.osflash.signals.natives.NativeSignal;
 			
-			import spark.events.ListEvent;
 			import spark.events.TextOperationEvent;
+			import spark.events.ViewNavigatorEvent;
 			
 			//--------------------------------------
 			//  Properties
@@ -51,6 +57,7 @@
 			 * 
 			 */
 			public var guestGenderRadioButtonChange : NativeSignal;
+
 			
 			//PUBLIC CONST
 			
@@ -82,7 +89,7 @@
 				loadButtonClickSignal  				= new NativeSignal	(loadMessage_button, 				MouseEvent.CLICK, 			MouseEvent);	
 				guestNameTextInputChange  			= new NativeSignal	(guestName_textinput, 				TextOperationEvent.CHANGE, 	TextOperationEvent);	
 				guestGenderRadioButtonChange  		= new NativeSignal	(guestGender_radiobuttongroup, 		Event.CHANGE, 				Event);	
-				
+				guestGenderRadioButtonChange  		= new NativeSignal	(guestGender_radiobuttongroup, 		Event.CHANGE, 				Event);	
 				
 			}
 			
@@ -99,9 +106,32 @@
 				share_button.visible = false;
 				share_button.width = 0;
 				
+				
+				webView_button.visible = false;
+				webView_button.width = 0;
+				
 				//
 				socialButtonClicked = new NativeSignal (socialButtons_hgroup, MouseEvent.CLICK, MouseEvent);
 				
+			}
+			
+			
+			protected function onViewActivate(event:ViewNavigatorEvent):void
+			{
+				NativeAds.dispatcher.addEventListener(NativeAdsEvent.AD_RECEIVED,onAdReceived);
+				NativeAds.showAd(0, 900 - 75,480,75);
+			}
+			
+			protected function onViewDeactivate(event:ViewNavigatorEvent):void
+			{
+				//hide ads
+				NativeAds.hideAd();
+			}
+			
+			protected function onAdReceived(event:Event):void
+			{
+				//Anything behind the ad will be hidden, update your layout to handle this edge case.
+				trace("update ui's size and position");
 			}
 			
 		]]>
@@ -125,7 +155,9 @@
 				/>
 		</s:layout>
 		
-		<s:BorderContainer width="100%" height="100%">
+		<s:BorderContainer width="100%" height="100%"
+						   backgroundAlpha="0"
+						   >
 			<s:layout>
 				<s:VerticalLayout
 					paddingBottom="0"
@@ -135,17 +167,17 @@
 					/>
 			</s:layout>
 			
-			<s:SpinnerListContainer width="100%"
+			<s:SpinnerListContainer width="100%" height="100%"
 									>
 				<s:SpinnerList id="languageFullList_spinnerlist" 
 							   width="100%" 
-							   height="600"
+							   height="100%"
 							   
 							   labelField="title"
 							   itemRenderer="com.rmc.projects.happybirthday.itemrenderers.FlagItemIconRenderer"
 							   />
 			</s:SpinnerListContainer>
-			<s:HGroup width="100%">
+			<s:HGroup width="100%" verticalAlign="top" paddingTop="20" paddingBottom="10" gap="20" >
 				<s:CalloutButton 
 					id="settings_calloutbutton" 
 					width="{settings_calloutbutton.height}" 
@@ -178,7 +210,17 @@
 			
 		</s:BorderContainer>
 	</s:Group>
-	<!-- TODO - Dynamically Insert iAD/adMob Advertisement Here -->	
-	<ads:MobileAdvertisement width="100%" height = "100" />
+	
+	<!-- 
+	
+	Dynamically Insert iAD/adMob Advertisement Within an Existing Layout. 
+	The 'live' sizing is fed to the API at startup, and again upon rotation, resizing, etc..
+	
+	1) unitID = "{insert_your_admob_code_here}" or externally as unitID = "{Passwords.AD_MOB_ID}" 
+	
+	2) Change all sizing parameters to meet you needs
+	
+	-->	
+	<local:NativeAdsContainerIPadBottom />
 	
 </views:AbstractView>
